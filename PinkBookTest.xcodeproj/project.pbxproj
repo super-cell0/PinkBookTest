@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		040A733E2A64DE4F00ACA108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040A733D2A64DE4F00ACA108 /* AppDelegate.swift */; };
+		040A73402A64DE4F00ACA108 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040A733F2A64DE4F00ACA108 /* SceneDelegate.swift */; };
+		040A73422A64DE4F00ACA108 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040A73412A64DE4F00ACA108 /* ViewController.swift */; };
+		040A73452A64DE4F00ACA108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040A73432A64DE4F00ACA108 /* Main.storyboard */; };
+		040A73482A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 040A73462A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld */; };
+		040A734A2A64DE5000ACA108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040A73492A64DE5000ACA108 /* Assets.xcassets */; };
+		040A734D2A64DE5000ACA108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040A734B2A64DE5000ACA108 /* LaunchScreen.storyboard */; };
+		FCCB7214E6B08AE1FA60044F /* Pods_PinkBookTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E742BF63EE31055AA1D12 /* Pods_PinkBookTest.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		03F5F096C945B670865C314C /* Pods-PinkBookTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinkBookTest.debug.xcconfig"; path = "Target Support Files/Pods-PinkBookTest/Pods-PinkBookTest.debug.xcconfig"; sourceTree = "<group>"; };
+		040A733A2A64DE4F00ACA108 /* PinkBookTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinkBookTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		040A733D2A64DE4F00ACA108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		040A733F2A64DE4F00ACA108 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		040A73412A64DE4F00ACA108 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		040A73442A64DE4F00ACA108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		040A73472A64DE4F00ACA108 /* PinkBookTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PinkBookTest.xcdatamodel; sourceTree = "<group>"; };
+		040A73492A64DE5000ACA108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		040A734C2A64DE5000ACA108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		040A734E2A64DE5000ACA108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D4405C302770CF9B31FC395 /* Pods-PinkBookTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinkBookTest.release.xcconfig"; path = "Target Support Files/Pods-PinkBookTest/Pods-PinkBookTest.release.xcconfig"; sourceTree = "<group>"; };
+		B89E742BF63EE31055AA1D12 /* Pods_PinkBookTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinkBookTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		040A73372A64DE4F00ACA108 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCCB7214E6B08AE1FA60044F /* Pods_PinkBookTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		040A73312A64DE4F00ACA108 = {
+			isa = PBXGroup;
+			children = (
+				040A733C2A64DE4F00ACA108 /* PinkBookTest */,
+				040A733B2A64DE4F00ACA108 /* Products */,
+				2129CC31858B7549C488EF7F /* Pods */,
+				4420DAB1FD61B05D4C56774A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		040A733B2A64DE4F00ACA108 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				040A733A2A64DE4F00ACA108 /* PinkBookTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		040A733C2A64DE4F00ACA108 /* PinkBookTest */ = {
+			isa = PBXGroup;
+			children = (
+				040A733D2A64DE4F00ACA108 /* AppDelegate.swift */,
+				040A733F2A64DE4F00ACA108 /* SceneDelegate.swift */,
+				040A73412A64DE4F00ACA108 /* ViewController.swift */,
+				040A73432A64DE4F00ACA108 /* Main.storyboard */,
+				040A73492A64DE5000ACA108 /* Assets.xcassets */,
+				040A734B2A64DE5000ACA108 /* LaunchScreen.storyboard */,
+				040A734E2A64DE5000ACA108 /* Info.plist */,
+				040A73462A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld */,
+			);
+			path = PinkBookTest;
+			sourceTree = "<group>";
+		};
+		2129CC31858B7549C488EF7F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				03F5F096C945B670865C314C /* Pods-PinkBookTest.debug.xcconfig */,
+				0D4405C302770CF9B31FC395 /* Pods-PinkBookTest.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4420DAB1FD61B05D4C56774A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B89E742BF63EE31055AA1D12 /* Pods_PinkBookTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		040A73392A64DE4F00ACA108 /* PinkBookTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 040A73512A64DE5000ACA108 /* Build configuration list for PBXNativeTarget "PinkBookTest" */;
+			buildPhases = (
+				FD1F94D7CEA575DBF2FF48BD /* [CP] Check Pods Manifest.lock */,
+				040A73362A64DE4F00ACA108 /* Sources */,
+				040A73372A64DE4F00ACA108 /* Frameworks */,
+				040A73382A64DE4F00ACA108 /* Resources */,
+				E67E023538427564ACD6E61B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PinkBookTest;
+			productName = PinkBookTest;
+			productReference = 040A733A2A64DE4F00ACA108 /* PinkBookTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		040A73322A64DE4F00ACA108 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					040A73392A64DE4F00ACA108 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 040A73352A64DE4F00ACA108 /* Build configuration list for PBXProject "PinkBookTest" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 040A73312A64DE4F00ACA108;
+			productRefGroup = 040A733B2A64DE4F00ACA108 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				040A73392A64DE4F00ACA108 /* PinkBookTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		040A73382A64DE4F00ACA108 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040A734D2A64DE5000ACA108 /* LaunchScreen.storyboard in Resources */,
+				040A734A2A64DE5000ACA108 /* Assets.xcassets in Resources */,
+				040A73452A64DE4F00ACA108 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E67E023538427564ACD6E61B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PinkBookTest/Pods-PinkBookTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PinkBookTest/Pods-PinkBookTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PinkBookTest/Pods-PinkBookTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD1F94D7CEA575DBF2FF48BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PinkBookTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		040A73362A64DE4F00ACA108 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040A73422A64DE4F00ACA108 /* ViewController.swift in Sources */,
+				040A733E2A64DE4F00ACA108 /* AppDelegate.swift in Sources */,
+				040A73482A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld in Sources */,
+				040A73402A64DE4F00ACA108 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		040A73432A64DE4F00ACA108 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				040A73442A64DE4F00ACA108 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		040A734B2A64DE5000ACA108 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				040A734C2A64DE5000ACA108 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		040A734F2A64DE5000ACA108 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		040A73502A64DE5000ACA108 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		040A73522A64DE5000ACA108 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03F5F096C945B670865C314C /* Pods-PinkBookTest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7DR2VQYR3G;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PinkBookTest/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beidixiaoxiong.PinkBookTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		040A73532A64DE5000ACA108 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D4405C302770CF9B31FC395 /* Pods-PinkBookTest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7DR2VQYR3G;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PinkBookTest/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beidixiaoxiong.PinkBookTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		040A73352A64DE4F00ACA108 /* Build configuration list for PBXProject "PinkBookTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				040A734F2A64DE5000ACA108 /* Debug */,
+				040A73502A64DE5000ACA108 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		040A73512A64DE5000ACA108 /* Build configuration list for PBXNativeTarget "PinkBookTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				040A73522A64DE5000ACA108 /* Debug */,
+				040A73532A64DE5000ACA108 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		040A73462A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				040A73472A64DE4F00ACA108 /* PinkBookTest.xcdatamodel */,
+			);
+			currentVersion = 040A73472A64DE4F00ACA108 /* PinkBookTest.xcdatamodel */;
+			path = PinkBookTest.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 040A73322A64DE4F00ACA108 /* Project object */;
+}
