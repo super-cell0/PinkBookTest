@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		040A733E2A64DE4F00ACA108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040A733D2A64DE4F00ACA108 /* AppDelegate.swift */; };
 		040A73402A64DE4F00ACA108 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040A733F2A64DE4F00ACA108 /* SceneDelegate.swift */; };
-		040A73422A64DE4F00ACA108 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040A73412A64DE4F00ACA108 /* ViewController.swift */; };
 		040A73452A64DE4F00ACA108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040A73432A64DE4F00ACA108 /* Main.storyboard */; };
 		040A73482A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 040A73462A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld */; };
 		040A734A2A64DE5000ACA108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040A73492A64DE5000ACA108 /* Assets.xcassets */; };
@@ -22,7 +21,6 @@
 		040A733A2A64DE4F00ACA108 /* PinkBookTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinkBookTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		040A733D2A64DE4F00ACA108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		040A733F2A64DE4F00ACA108 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		040A73412A64DE4F00ACA108 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		040A73442A64DE4F00ACA108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		040A73472A64DE4F00ACA108 /* PinkBookTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PinkBookTest.xcdatamodel; sourceTree = "<group>"; };
 		040A73492A64DE5000ACA108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,10 +63,14 @@
 		040A733C2A64DE4F00ACA108 /* PinkBookTest */ = {
 			isa = PBXGroup;
 			children = (
-				040A733D2A64DE4F00ACA108 /* AppDelegate.swift */,
 				040A733F2A64DE4F00ACA108 /* SceneDelegate.swift */,
-				040A73412A64DE4F00ACA108 /* ViewController.swift */,
+				040A733D2A64DE4F00ACA108 /* AppDelegate.swift */,
 				040A73432A64DE4F00ACA108 /* Main.storyboard */,
+				04503CDA2A64E22300398E3D /* Me */,
+				04503CD92A64E21C00398E3D /* Message */,
+				04503CD82A64E21600398E3D /* Plus */,
+				04503CD72A64E20D00398E3D /* Cart */,
+				04503CD62A64E19900398E3D /* Home */,
 				040A73492A64DE5000ACA108 /* Assets.xcassets */,
 				040A734B2A64DE5000ACA108 /* LaunchScreen.storyboard */,
 				040A734E2A64DE5000ACA108 /* Info.plist */,
@@ -77,13 +79,167 @@
 			path = PinkBookTest;
 			sourceTree = "<group>";
 		};
+		04503CD62A64E19900398E3D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				04503CDD2A64E27400398E3D /* Controller */,
+				04503CDC2A64E26D00398E3D /* View */,
+				04503CDB2A64E26300398E3D /* Model */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		04503CD72A64E20D00398E3D /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				04503CE02A64E28700398E3D /* Controller */,
+				04503CDF2A64E28200398E3D /* View */,
+				04503CDE2A64E27C00398E3D /* Model */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		04503CD82A64E21600398E3D /* Plus */ = {
+			isa = PBXGroup;
+			children = (
+				04503CE32A64E29C00398E3D /* Controller */,
+				04503CE22A64E29600398E3D /* View */,
+				04503CE12A64E29100398E3D /* Model */,
+			);
+			path = Plus;
+			sourceTree = "<group>";
+		};
+		04503CD92A64E21C00398E3D /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				04503CE62A64E2B000398E3D /* Controller */,
+				04503CE52A64E2AA00398E3D /* Model */,
+				04503CE42A64E2A400398E3D /* View */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		04503CDA2A64E22300398E3D /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				04503CE92A64E2CB00398E3D /* Controller */,
+				04503CE82A64E2C100398E3D /* View */,
+				04503CE72A64E2BC00398E3D /* Model */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		04503CDB2A64E26300398E3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04503CDC2A64E26D00398E3D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04503CDD2A64E27400398E3D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04503CDE2A64E27C00398E3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04503CDF2A64E28200398E3D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04503CE02A64E28700398E3D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04503CE12A64E29100398E3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04503CE22A64E29600398E3D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04503CE32A64E29C00398E3D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04503CE42A64E2A400398E3D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04503CE52A64E2AA00398E3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04503CE62A64E2B000398E3D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04503CE72A64E2BC00398E3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04503CE82A64E2C100398E3D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04503CE92A64E2CB00398E3D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2129CC31858B7549C488EF7F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				03F5F096C945B670865C314C /* Pods-PinkBookTest.debug.xcconfig */,
 				0D4405C302770CF9B31FC395 /* Pods-PinkBookTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -210,7 +366,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				040A73422A64DE4F00ACA108 /* ViewController.swift in Sources */,
 				040A733E2A64DE4F00ACA108 /* AppDelegate.swift in Sources */,
 				040A73482A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld in Sources */,
 				040A73402A64DE4F00ACA108 /* SceneDelegate.swift in Sources */,
