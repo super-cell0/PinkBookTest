@@ -6,6 +6,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PtT-6m-gnR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1016" y="594"/>
+            <point key="canvasLocation" x="-1538" y="594"/>
         </scene>
         <!--me-->
         <scene sceneID="8br-49-kRh">
@@ -39,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2Q-Xn-jo5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-237" y="594"/>
+            <point key="canvasLocation" x="-634" y="594"/>
         </scene>
         <!--plus-->
         <scene sceneID="tne-QT-ifu">
@@ -55,7 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="537" y="225"/>
+            <point key="canvasLocation" x="245" y="594"/>
         </scene>
         <!--cart-->
         <scene sceneID="qYP-e9-WvS">
@@ -71,23 +72,180 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deE-GZ-fDo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="537" y="-452"/>
+            <point key="canvasLocation" x="1263" y="594"/>
         </scene>
         <!--home-->
         <scene sceneID="3Bk-en-khF">
             <objects>
-                <viewController id="cky-FA-9ed" sceneMemberID="viewController">
+                <viewController id="cky-FA-9ed" customClass="HomeViewController" customModule="PinkBookTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x04-PT-W2L">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wiL-Cb-25L" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="psQ-AS-tP2"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="10" id="gzj-RU-rr7">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="115" minY="0.0" maxX="115" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8T-Ra-mEN">
+                                <rect key="frame" x="0.0" y="111" width="393" height="658"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="v7x-iI-dsG"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="d45-DW-1Wy"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="sK8-J1-PH8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e8T-Ra-mEN" firstAttribute="top" secondItem="wiL-Cb-25L" secondAttribute="bottom" id="10a-6W-FRi"/>
+                            <constraint firstItem="wiL-Cb-25L" firstAttribute="top" secondItem="sK8-J1-PH8" secondAttribute="top" id="7OM-ox-UXh"/>
+                            <constraint firstItem="wiL-Cb-25L" firstAttribute="leading" secondItem="x04-PT-W2L" secondAttribute="leading" id="LOA-Pt-cwt"/>
+                            <constraint firstItem="e8T-Ra-mEN" firstAttribute="bottom" secondItem="sK8-J1-PH8" secondAttribute="bottom" id="bDs-jg-XqL"/>
+                            <constraint firstItem="e8T-Ra-mEN" firstAttribute="leading" secondItem="x04-PT-W2L" secondAttribute="leading" id="h8T-Mg-3Hq"/>
+                            <constraint firstAttribute="trailing" secondItem="wiL-Cb-25L" secondAttribute="trailing" id="qKd-7x-fo2"/>
+                            <constraint firstAttribute="trailing" secondItem="e8T-Ra-mEN" secondAttribute="trailing" id="t3w-up-i0F"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="home" image="house" catalog="system" id="Szk-yn-e6c"/>
+                    <connections>
+                        <outlet property="buttonBarView" destination="wiL-Cb-25L" id="wvM-84-7Pk"/>
+                        <outlet property="containerView" destination="e8T-Ra-mEN" id="LBt-Sd-REF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Pt-hb-DTC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="537" y="-1121"/>
+            <point key="canvasLocation" x="525.95419847328242" y="-204.22535211267606"/>
+        </scene>
+        <!--Discovery View Controller-->
+        <scene sceneID="eDg-w6-Asx">
+            <objects>
+                <viewController storyboardIdentifier="DiscoveryViewControllerID" id="8na-2K-4rG" customClass="DiscoveryViewController" customModule="PinkBookTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F1c-eN-aeT">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZRK-7F-yPN" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="wSn-OW-eHN"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NY6-s0-qJn">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4AV-Om-UdA">
+                                <rect key="frame" x="0.0" y="111" width="393" height="741"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="8Hp-O1-VSi"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="xsh-IW-brh"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4ml-4N-bTO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZRK-7F-yPN" firstAttribute="leading" secondItem="F1c-eN-aeT" secondAttribute="leading" id="1ob-gG-5M2"/>
+                            <constraint firstAttribute="trailing" secondItem="ZRK-7F-yPN" secondAttribute="trailing" id="ALL-jw-6yh"/>
+                            <constraint firstItem="ZRK-7F-yPN" firstAttribute="top" secondItem="4ml-4N-bTO" secondAttribute="top" id="LBA-bk-ovw"/>
+                            <constraint firstItem="4AV-Om-UdA" firstAttribute="leading" secondItem="F1c-eN-aeT" secondAttribute="leading" id="Ytl-pe-syn"/>
+                            <constraint firstAttribute="bottom" secondItem="4AV-Om-UdA" secondAttribute="bottom" id="hMH-IU-fe9"/>
+                            <constraint firstItem="4AV-Om-UdA" firstAttribute="top" secondItem="ZRK-7F-yPN" secondAttribute="bottom" id="rhR-3l-1zl"/>
+                            <constraint firstAttribute="trailing" secondItem="4AV-Om-UdA" secondAttribute="trailing" id="rzh-s5-Tmb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonBarView" destination="ZRK-7F-yPN" id="1yf-LF-kY3"/>
+                        <outlet property="containerView" destination="4AV-Om-UdA" id="QR2-Mn-Xjn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qug-pD-6Mp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1266.4122137404579" y="-209.1549295774648"/>
+        </scene>
+        <!--Waterfall Collection View Controller-->
+        <scene sceneID="e9U-AC-lZG">
+            <objects>
+                <collectionViewController storyboardIdentifier="WaterfallCollectionViewControllerID" id="biy-S7-dRY" customClass="WaterfallCollectionViewController" customModule="PinkBookTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="2Fx-IX-Ywe">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewLayout key="collectionViewLayout" id="5L5-aY-Xlf" customClass="CHTCollectionViewWaterfallLayout" customModule="CHTCollectionViewWaterfallLayout"/>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="watefallCellID" id="qNI-Nb-HgV" customClass="WaterfallCollectionViewCell" customModule="PinkBookTest" customModuleProvider="target">
+                                <rect key="frame" x="90.666666666666671" y="0.0" width="212" height="202"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="beL-XR-5sN">
+                                    <rect key="frame" x="0.0" y="0.0" width="212" height="202"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9B2-8W-RWF">
+                                            <rect key="frame" x="0.0" y="0.0" width="212" height="202"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9B2-8W-RWF" firstAttribute="leading" secondItem="beL-XR-5sN" secondAttribute="leading" id="7am-IV-pWS"/>
+                                        <constraint firstAttribute="bottom" secondItem="9B2-8W-RWF" secondAttribute="bottom" id="giL-RA-fsm"/>
+                                        <constraint firstItem="9B2-8W-RWF" firstAttribute="top" secondItem="beL-XR-5sN" secondAttribute="top" id="mdn-qG-Cp9"/>
+                                        <constraint firstAttribute="trailing" secondItem="9B2-8W-RWF" secondAttribute="trailing" id="ui5-mX-PZB"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="212" height="202"/>
+                                <connections>
+                                    <outlet property="imageView" destination="9B2-8W-RWF" id="3D5-Fz-k2C"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="biy-S7-dRY" id="4Kx-dK-dBP"/>
+                            <outlet property="delegate" destination="biy-S7-dRY" id="2wf-Jg-CUj"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pao-0n-uab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2110.6870229007632" y="-209.1549295774648"/>
+        </scene>
+        <!--Follow View Controller-->
+        <scene sceneID="nsS-Fv-v3n">
+            <objects>
+                <viewController storyboardIdentifier="FollowViewControllerID" id="PT0-wt-F9I" customClass="FollowViewController" customModule="PinkBookTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uds-5L-jVN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aZ5-Mt-rYH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7yV-m2-6vO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="526" y="-870"/>
+        </scene>
+        <!--Near By View Controller-->
+        <scene sceneID="IyL-BZ-Pyb">
+            <objects>
+                <viewController storyboardIdentifier="NearByViewControllerID" id="oKr-xM-vNH" customClass="NearByViewController" customModule="PinkBookTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="knv-iu-giR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Mir-xG-3mI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UFl-jP-KiW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1256" y="-870"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KFW-N6-xuj">
@@ -119,7 +277,7 @@
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="plus.rectangle" catalog="system" width="128" height="93"/>
         <namedColor name="mainColor">
-            <color red="0.035294117647058823" green="0.51764705882352935" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.035000000149011612" green="0.51800000667572021" blue="0.88999998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
