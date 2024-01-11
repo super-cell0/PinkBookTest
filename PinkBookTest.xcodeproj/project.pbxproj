@@ -13,6 +13,8 @@
 		040A73482A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 040A73462A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld */; };
 		040A734A2A64DE5000ACA108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040A73492A64DE5000ACA108 /* Assets.xcassets */; };
 		040A734D2A64DE5000ACA108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040A734B2A64DE5000ACA108 /* LaunchScreen.storyboard */; };
+		04120EC92B4FBFD60092820B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04120EC82B4FBFD60092820B /* PostViewController.swift */; };
+		044904BF2B4E68AA00BCD774 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044904BE2B4E68AA00BCD774 /* TabBarViewController.swift */; };
 		04503CEB2A64E33300398E3D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503CEA2A64E33300398E3D /* HomeViewController.swift */; };
 		04503CEE2A64E60500398E3D /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503CED2A64E60500398E3D /* ColorExtension.swift */; };
 		04503CF02A64EB5400398E3D /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503CEF2A64EB5400398E3D /* FollowViewController.swift */; };
@@ -34,6 +36,10 @@
 		040A73492A64DE5000ACA108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		040A734C2A64DE5000ACA108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		040A734E2A64DE5000ACA108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04120EC82B4FBFD60092820B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		04120ECA2B4FC8A50092820B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		04120ECB2B4FC8A50092820B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		044904BE2B4E68AA00BCD774 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		04503CEA2A64E33300398E3D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		04503CED2A64E60500398E3D /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		04503CEF2A64EB5400398E3D /* FollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +88,7 @@
 				040A733F2A64DE4F00ACA108 /* SceneDelegate.swift */,
 				040A733D2A64DE4F00ACA108 /* AppDelegate.swift */,
 				040A73432A64DE4F00ACA108 /* Main.storyboard */,
+				044904BE2B4E68AA00BCD774 /* TabBarViewController.swift */,
 				04503CEC2A64E5CA00398E3D /* Common */,
 				04503CDA2A64E22300398E3D /* Me */,
 				04503CD92A64E21C00398E3D /* Message */,
@@ -211,6 +218,7 @@
 		04503CE32A64E29C00398E3D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04120EC82B4FBFD60092820B /* PostViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -327,6 +335,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 040A73312A64DE4F00ACA108;
 			productRefGroup = 040A733B2A64DE4F00ACA108 /* Products */;
@@ -401,7 +410,9 @@
 				04503CFA2A64FA6200398E3D /* WaterfallCollectionViewCell.swift in Sources */,
 				040A733E2A64DE4F00ACA108 /* AppDelegate.swift in Sources */,
 				040A73482A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld in Sources */,
+				04120EC92B4FBFD60092820B /* PostViewController.swift in Sources */,
 				040A73402A64DE4F00ACA108 /* SceneDelegate.swift in Sources */,
+				044904BF2B4E68AA00BCD774 /* TabBarViewController.swift in Sources */,
 				04503CF22A64EB7500398E3D /* DiscoveryViewController.swift in Sources */,
 				04503CF02A64EB5400398E3D /* FollowViewController.swift in Sources */,
 				04503CF42A64EB8C00398E3D /* NearByViewController.swift in Sources */,
@@ -419,6 +430,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				040A73442A64DE4F00ACA108 /* Base */,
+				04120ECA2B4FC8A50092820B /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -427,6 +439,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				040A734C2A64DE5000ACA108 /* Base */,
+				04120ECB2B4FC8A50092820B /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -438,6 +451,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -498,6 +512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -571,9 +586,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.beidixiaoxiong.PinkBookTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -600,9 +618,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.beidixiaoxiong.PinkBookTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
