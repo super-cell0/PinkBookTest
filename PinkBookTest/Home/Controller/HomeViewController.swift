@@ -27,6 +27,11 @@ class HomeViewController: ButtonBarPagerTabStripViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        //用于通知试图控制器已经在屏幕上显示完成 当一个试图控制器的视图被添加到试图的层次结构中 并完成动画 系统调用该方法
+        //开始播放动画、加载数据、或者执行其他需要在视图可见时执行的操作
+    }
+    
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         
