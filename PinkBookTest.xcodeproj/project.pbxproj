@@ -14,6 +14,10 @@
 		040A734A2A64DE5000ACA108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040A73492A64DE5000ACA108 /* Assets.xcassets */; };
 		040A734D2A64DE5000ACA108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040A734B2A64DE5000ACA108 /* LaunchScreen.storyboard */; };
 		04120EC92B4FBFD60092820B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04120EC82B4FBFD60092820B /* PostViewController.swift */; };
+		043541982BC383B600D1ED2D /* NoteEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043541972BC383B600D1ED2D /* NoteEditViewController.swift */; };
+		0435419A2BC384A700D1ED2D /* PhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043541992BC384A700D1ED2D /* PhotoItem.swift */; };
+		0435419E2BC394C500D1ED2D /* PhotoFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435419D2BC394C500D1ED2D /* PhotoFooter.swift */; };
+		043541A12BC4E2AA00D1ED2D /* AllExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043541A02BC4E2AA00D1ED2D /* AllExtensions.swift */; };
 		044904BF2B4E68AA00BCD774 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044904BE2B4E68AA00BCD774 /* TabBarViewController.swift */; };
 		04503CEB2A64E33300398E3D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503CEA2A64E33300398E3D /* HomeViewController.swift */; };
 		04503CEE2A64E60500398E3D /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503CED2A64E60500398E3D /* ColorExtension.swift */; };
@@ -23,6 +27,7 @@
 		04503CF62A64ED1C00398E3D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503CF52A64ED1C00398E3D /* Constants.swift */; };
 		04503CF82A64F7AD00398E3D /* WaterfallCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503CF72A64F7AD00398E3D /* WaterfallCollectionViewController.swift */; };
 		04503CFA2A64FA6200398E3D /* WaterfallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503CF92A64FA6200398E3D /* WaterfallCollectionViewCell.swift */; };
+		04A05F592BCD5FEE005AB31C /* testVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04A05F582BCD5FEE005AB31C /* testVideo.mp4 */; };
 		FCCB7214E6B08AE1FA60044F /* Pods_PinkBookTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E742BF63EE31055AA1D12 /* Pods_PinkBookTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +44,11 @@
 		04120EC82B4FBFD60092820B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		04120ECA2B4FC8A50092820B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		04120ECB2B4FC8A50092820B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		043541972BC383B600D1ED2D /* NoteEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditViewController.swift; sourceTree = "<group>"; };
+		043541992BC384A700D1ED2D /* PhotoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItem.swift; sourceTree = "<group>"; };
+		0435419D2BC394C500D1ED2D /* PhotoFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFooter.swift; sourceTree = "<group>"; };
+		0435419F2BC4E08A00D1ED2D /* PinkBookTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PinkBookTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		043541A02BC4E2AA00D1ED2D /* AllExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExtensions.swift; sourceTree = "<group>"; };
 		044904BE2B4E68AA00BCD774 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		04503CEA2A64E33300398E3D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		04503CED2A64E60500398E3D /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -48,6 +58,7 @@
 		04503CF52A64ED1C00398E3D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04503CF72A64F7AD00398E3D /* WaterfallCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallCollectionViewController.swift; sourceTree = "<group>"; };
 		04503CF92A64FA6200398E3D /* WaterfallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallCollectionViewCell.swift; sourceTree = "<group>"; };
+		04A05F582BCD5FEE005AB31C /* testVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = testVideo.mp4; sourceTree = "<group>"; };
 		0D4405C302770CF9B31FC395 /* Pods-PinkBookTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinkBookTest.release.xcconfig"; path = "Target Support Files/Pods-PinkBookTest/Pods-PinkBookTest.release.xcconfig"; sourceTree = "<group>"; };
 		B89E742BF63EE31055AA1D12 /* Pods_PinkBookTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinkBookTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -88,7 +99,6 @@
 				040A733F2A64DE4F00ACA108 /* SceneDelegate.swift */,
 				040A733D2A64DE4F00ACA108 /* AppDelegate.swift */,
 				040A73432A64DE4F00ACA108 /* Main.storyboard */,
-				044904BE2B4E68AA00BCD774 /* TabBarViewController.swift */,
 				04503CEC2A64E5CA00398E3D /* Common */,
 				04503CDA2A64E22300398E3D /* Me */,
 				04503CD92A64E21C00398E3D /* Message */,
@@ -99,6 +109,8 @@
 				040A734B2A64DE5000ACA108 /* LaunchScreen.storyboard */,
 				040A734E2A64DE5000ACA108 /* Info.plist */,
 				040A73462A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld */,
+				0435419F2BC4E08A00D1ED2D /* PinkBookTest-Bridging-Header.h */,
+				04A05F582BCD5FEE005AB31C /* testVideo.mp4 */,
 			);
 			path = PinkBookTest;
 			sourceTree = "<group>";
@@ -211,6 +223,8 @@
 		04503CE22A64E29600398E3D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				043541992BC384A700D1ED2D /* PhotoItem.swift */,
+				0435419D2BC394C500D1ED2D /* PhotoFooter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -219,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				04120EC82B4FBFD60092820B /* PostViewController.swift */,
+				043541972BC383B600D1ED2D /* NoteEditViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -268,8 +283,10 @@
 		04503CEC2A64E5CA00398E3D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				044904BE2B4E68AA00BCD774 /* TabBarViewController.swift */,
 				04503CED2A64E60500398E3D /* ColorExtension.swift */,
 				04503CF52A64ED1C00398E3D /* Constants.swift */,
+				043541A02BC4E2AA00D1ED2D /* AllExtensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -321,7 +338,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					040A73392A64DE4F00ACA108 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -355,6 +372,7 @@
 				040A734D2A64DE5000ACA108 /* LaunchScreen.storyboard in Resources */,
 				040A734A2A64DE5000ACA108 /* Assets.xcassets in Resources */,
 				040A73452A64DE4F00ACA108 /* Main.storyboard in Resources */,
+				04A05F592BCD5FEE005AB31C /* testVideo.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,8 +425,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0435419E2BC394C500D1ED2D /* PhotoFooter.swift in Sources */,
 				04503CFA2A64FA6200398E3D /* WaterfallCollectionViewCell.swift in Sources */,
 				040A733E2A64DE4F00ACA108 /* AppDelegate.swift in Sources */,
+				043541A12BC4E2AA00D1ED2D /* AllExtensions.swift in Sources */,
+				043541982BC383B600D1ED2D /* NoteEditViewController.swift in Sources */,
 				040A73482A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld in Sources */,
 				04120EC92B4FBFD60092820B /* PostViewController.swift in Sources */,
 				040A73402A64DE4F00ACA108 /* SceneDelegate.swift in Sources */,
@@ -417,6 +438,7 @@
 				04503CF02A64EB5400398E3D /* FollowViewController.swift in Sources */,
 				04503CF42A64EB8C00398E3D /* NearByViewController.swift in Sources */,
 				04503CEB2A64E33300398E3D /* HomeViewController.swift in Sources */,
+				0435419A2BC384A700D1ED2D /* PhotoItem.swift in Sources */,
 				04503CF82A64F7AD00398E3D /* WaterfallCollectionViewController.swift in Sources */,
 				04503CEE2A64E60500398E3D /* ColorExtension.swift in Sources */,
 				04503CF62A64ED1C00398E3D /* Constants.swift in Sources */,
@@ -484,6 +506,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -545,6 +568,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -572,6 +596,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7DR2VQYR3G;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PinkBookTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -590,6 +615,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PinkBookTest/PinkBookTest-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -604,6 +630,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7DR2VQYR3G;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PinkBookTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -622,6 +649,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PinkBookTest/PinkBookTest-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

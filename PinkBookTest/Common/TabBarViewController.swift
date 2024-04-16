@@ -70,6 +70,16 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
                 if cancelled {
                     print("用户取消了照片选取")
                 }
+                
+                for item in items {
+                    switch item {
+                    case let .photo(p):
+                        print(p)
+                    case let .video(v):
+                        print(v)
+                    }
+                }
+                
                 picker.dismiss(animated: true, completion: nil)
             }
             

@@ -11,7 +11,10 @@ target 'PinkBookTest' do
   pod 'XLPagerTabStrip', '~> 9.0'
   # 瀑布流
   pod 'CHTCollectionViewWaterfallLayout'
-  # 照片
+  # 加载提示
+  pod 'MBProgressHUD', '~> 1.2.0'
+  # 图片预览
+  pod 'SKPhotoBrowser'
  
   
 end

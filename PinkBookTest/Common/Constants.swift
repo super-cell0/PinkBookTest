@@ -17,3 +17,7 @@ let kWatefallCellID = "watefallCellID"
 let kWaterfallCollectionViewControllerID = "WaterfallCollectionViewControllerID"
 
 let channels = ["推荐", "旅行", "娱乐", "美食", "科技", "萌宠", "游戏", "生活", "社会", "其他"]
+
+
+let kPhotoItemID = "PhotoItemID"
+let kPhotoFooterID = "PhotoFooterID"
