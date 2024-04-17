@@ -21,7 +21,7 @@ class NoteEditViewController: UIViewController {
             titleCountLabel.isHidden = true
         }
     }
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textView: LimitedTextView!
     
     var dragingIndexPath = IndexPath(item: 0, section: 0)
     
@@ -29,6 +29,7 @@ class NoteEditViewController: UIViewController {
     //var videoURL: URL = Bundle.main.url(forResource: "testVideo", withExtension: "mp4")!
     var videoURL: URL?
     var isVideo: Bool { videoURL != nil }
+    var textViewAccessoryView: TextViewAccessoryView { textView.inputAccessoryView as! TextViewAccessoryView }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,19 @@ class NoteEditViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         
+        //let lineFragmentPadding = textView.textContainer.lineFragmentPadding
+        //textView.textContainerInset = UIEdgeInsets(top: 0, left: -lineFragmentPadding, bottom: 0, right: -lineFragmentPadding)
+        
+        textView.placeholder = "填写内容"
+        
+        if let textViewAccessoryViewNib = Bundle.main.loadNibNamed("TextViewAccessoryView", owner: nil)?.first as? TextViewAccessoryView {
+            textView.inputAccessoryView = textViewAccessoryViewNib
+            textViewAccessoryView.doneButton.addTarget(self, action: #selector(resignTextView), for: .touchUpInside)
+            textViewAccessoryView.maxTextCountLabel.text = "/\(kMaxTextViewText)"
+        }
+        
+        textView.delegate = self
+        
     }
     
     @IBAction func titleTextFieldEditingDidBegin(_ sender: Any) {
@@ -65,10 +79,28 @@ class NoteEditViewController: UIViewController {
     
     
     @IBAction func titleTextFieldEditingChanged(_ sender: Any) {
+        guard titleTextField.markedTextRange == nil else { return }
+        if titleTextField.unwrappedText.count > 20 {
+            titleTextField.text = String(titleTextField.unwrappedText.prefix(20))
+            self.showTextHUD(title: "标题最多输入20个字")
+            DispatchQueue.main.async {
+                let end = self.titleTextField.endOfDocument
+                self.titleTextField.selectedTextRange = self.titleTextField.textRange(from: end, to: end)
+            }
+
+        }
         titleCountLabel.text = "\(20 - titleTextField.unwrappedText.count)"
     }
     
     
+}
+
+extension NoteEditViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        guard textView.markedTextRange == nil else { return }
+        textViewAccessoryView.currentTextCount = textView.text.count
+    }
     
 }
 
@@ -80,14 +112,14 @@ extension NoteEditViewController: UITextFieldDelegate {
         return true
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if range.location >= 20 || (textField.unwrappedText.count + string.count) > 20 {
-            self.showTextHUD(title: "标题最多输入20个字")
-            return false
-        }
-        
-        return true
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        if range.location >= 20 || (textField.unwrappedText.count + string.count) > 20 {
+//            self.showTextHUD(title: "标题最多输入20个字")
+//            return false
+//        }
+//        
+//        return true
+//    }
     
 }
 
@@ -222,6 +254,10 @@ extension NoteEditViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension NoteEditViewController {
+    
+    @objc func resignTextView() {
+        textView.resignFirstResponder()
+    }
     
     @objc func addPhoto() {
         if photos.count < 9 {
