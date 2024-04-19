@@ -17,13 +17,13 @@ class HomeViewController: ButtonBarPagerTabStripViewController {
         setTabBar()
         super.viewDidLoad()
         
+        containerView.bounces = false
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
             oldCell?.label.textColor = UIColor.secondaryLabel
             newCell?.label.textColor = UIColor.mainColor
         }
         
-        containerView.bounces = false
         
     }
     

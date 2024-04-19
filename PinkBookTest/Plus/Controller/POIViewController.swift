@@ -1,13 +1,13 @@
 //
-//  PostViewController.swift
+//  POIViewController.swift
 //  PinkBookTest
 //
-//  Created by mac on 2024/1/11.
+//  Created by mac on 2024/4/18.
 //
 
 import UIKit
 
-class PostViewController: UIViewController {
+class POIViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

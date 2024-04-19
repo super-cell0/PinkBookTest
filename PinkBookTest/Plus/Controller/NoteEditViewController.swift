@@ -22,6 +22,12 @@ class NoteEditViewController: UIViewController {
         }
     }
     @IBOutlet weak var textView: LimitedTextView!
+    @IBOutlet weak var channelLabel: UILabel!
+    @IBOutlet weak var subChannelLabel: UILabel!
+    @IBOutlet weak var speakerImaegView: UIImageView!
+    
+    var channel = ""
+    var subChannel = ""
     
     var dragingIndexPath = IndexPath(item: 0, section: 0)
     
@@ -90,6 +96,25 @@ class NoteEditViewController: UIViewController {
 
         }
         titleCountLabel.text = "\(20 - titleTextField.unwrappedText.count)"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ChannelViewController {
+            vc.channelDelegate = self
+        }
+    }
+    
+}
+
+extension NoteEditViewController: ChannelViewControllerDelegate {
+    func updateChannel(channel: String, subChannel: String) {
+        self.channel = channel
+        self.subChannel = subChannel
+        
+        channelLabel.text = subChannel
+        speakerImaegView.tintColor = .mainColor
+        channelLabel.textColor = .mainColor
+        subChannelLabel.isHidden = true
     }
     
     

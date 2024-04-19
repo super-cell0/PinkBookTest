@@ -34,7 +34,7 @@ class DiscoveryViewController: ButtonBarPagerTabStripViewController, IndicatorIn
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         
         var vcs: [UIViewController] = []
-        for channel in channels {
+        for channel in kChannels {
             let vc = storyboard!.instantiateViewController(identifier: kWaterfallCollectionViewControllerID) as! WaterfallCollectionViewController
             vc.channel = channel
             vcs.append(vc)

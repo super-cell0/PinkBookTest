@@ -16,7 +16,7 @@ let kWatefallCellID = "watefallCellID"
 
 let kWaterfallCollectionViewControllerID = "WaterfallCollectionViewControllerID"
 
-let channels = ["推荐", "旅行", "娱乐", "美食", "科技", "萌宠", "游戏", "生活", "社会", "其他"]
+let kChannels = ["推荐", "旅行", "娱乐", "美食", "科技", "游戏", "生活", "其他",]
 
 
 let kPhotoItemID = "PhotoItemID"
@@ -24,7 +24,7 @@ let kPhotoFooterID = "PhotoFooterID"
 
 let kMaxTextViewText = 1000
 
-let kSubChannels = [
+let kAllSubChannels = [
     ["穿神马是神马", "就快瘦到50斤啦", "花5个小时修的靓图", "网红店入坑记"],
     ["魔都名媛会会长", "爬行西藏", "无边泳池只要9块9"],
     ["小鲜肉的魔幻剧", "国产动画雄起"],
@@ -35,3 +35,5 @@ let kSubChannels = [
     ["我的猫儿子", "我的猫女儿", "我的兔兔"]
 ]
 
+let kChannelTableViewControllerID = "ChannelTableViewControllerID"
+let kSubChannelCellID = "SubChannelCellID"
