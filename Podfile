@@ -16,6 +16,8 @@ target 'PinkBookTest' do
   # 图片预览
   pod 'SKPhotoBrowser'
   #pod 'KMPlaceholderTextView', '~> 1.4.0'
+  pod 'AMapLocation'
+  pod 'AMapSearch'
  
   
 end

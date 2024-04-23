@@ -7,6 +7,16 @@
 
 import Foundation
 
+extension String {
+    var isBlank: Bool {
+        self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+}
+
+extension Optional where Wrapped == String {
+    var unWrappedText: String { self ?? ""}
+}
+
 
 extension UIView {
     @IBInspectable
@@ -23,6 +33,17 @@ extension UIView {
 
 extension UIViewController {
     
+    // 加载框 手动隐藏
+    func showLoadHUD(title: String? = nil) {
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.label.text = title
+    }
+    
+    func hideLoadHUD() {
+        MBProgressHUD.hide(for: self.view, animated: true)
+    }
+    
+    // 加载框 自动隐藏
     func showTextHUD(title: String, subtitle: String? = nil) {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.mode = .text

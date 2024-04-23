@@ -28,6 +28,7 @@
 		04503CF82A64F7AD00398E3D /* WaterfallCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503CF72A64F7AD00398E3D /* WaterfallCollectionViewController.swift */; };
 		04503CFA2A64FA6200398E3D /* WaterfallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503CF92A64FA6200398E3D /* WaterfallCollectionViewCell.swift */; };
 		04710F532BD15D2300D80988 /* POIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04710F522BD15D2300D80988 /* POIViewController.swift */; };
+		047BDD632BD5F17A00774027 /* POICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BDD622BD5F17A00774027 /* POICell.swift */; };
 		04A05F592BCD5FEE005AB31C /* testVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04A05F582BCD5FEE005AB31C /* testVideo.mp4 */; };
 		04A05F5B2BCF9B3E005AB31C /* LimitedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A05F5A2BCF9B3D005AB31C /* LimitedTextView.swift */; };
 		04A05F5D2BCFB547005AB31C /* TextViewAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A05F5C2BCFB547005AB31C /* TextViewAccessoryView.xib */; };
@@ -65,6 +66,7 @@
 		04503CF72A64F7AD00398E3D /* WaterfallCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallCollectionViewController.swift; sourceTree = "<group>"; };
 		04503CF92A64FA6200398E3D /* WaterfallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallCollectionViewCell.swift; sourceTree = "<group>"; };
 		04710F522BD15D2300D80988 /* POIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIViewController.swift; sourceTree = "<group>"; };
+		047BDD622BD5F17A00774027 /* POICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POICell.swift; sourceTree = "<group>"; };
 		04A05F582BCD5FEE005AB31C /* testVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = testVideo.mp4; sourceTree = "<group>"; };
 		04A05F5A2BCF9B3D005AB31C /* LimitedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedTextView.swift; sourceTree = "<group>"; };
 		04A05F5C2BCFB547005AB31C /* TextViewAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewAccessoryView.xib; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				0435419D2BC394C500D1ED2D /* PhotoFooter.swift */,
 				04A05F5E2BCFB5AE005AB31C /* TextViewAccessoryView.swift */,
 				04A05F5C2BCFB547005AB31C /* TextViewAccessoryView.xib */,
+				047BDD622BD5F17A00774027 /* POICell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				04503CF42A64EB8C00398E3D /* NearByViewController.swift in Sources */,
 				04503CEB2A64E33300398E3D /* HomeViewController.swift in Sources */,
 				04A05F632BD0EC2C005AB31C /* ChannelViewController.swift in Sources */,
+				047BDD632BD5F17A00774027 /* POICell.swift in Sources */,
 				04A05F5F2BCFB5AE005AB31C /* TextViewAccessoryView.swift in Sources */,
 				0435419A2BC384A700D1ED2D /* PhotoItem.swift in Sources */,
 				04503CF82A64F7AD00398E3D /* WaterfallCollectionViewController.swift in Sources */,
@@ -623,6 +627,10 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PinkBookTest/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "打开后可以拍照照片和视频";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "打开后可以录制声音";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "打开后可以保存图片和视频";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "打开后可以拍照照片和视频";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -657,6 +665,10 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PinkBookTest/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "打开后可以拍照照片和视频";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "打开后可以录制声音";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "打开后可以保存图片和视频";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "打开后可以拍照照片和视频";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

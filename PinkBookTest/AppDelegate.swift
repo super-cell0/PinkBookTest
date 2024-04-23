@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //这个方法中通常会进行一些初始化操作，比如配置 UI、启动后台任务等
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 4
+        AMapServices.shared().enableHTTPS = true
+        AMapServices.shared().apiKey = "66ff1fbe3f464fbf593ee618a4826730"
+
         return true
     }
 

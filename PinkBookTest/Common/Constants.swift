@@ -37,3 +37,4 @@ let kAllSubChannels = [
 
 let kChannelTableViewControllerID = "ChannelTableViewControllerID"
 let kSubChannelCellID = "SubChannelCellID"
+let kPOICellID = "POICellID"

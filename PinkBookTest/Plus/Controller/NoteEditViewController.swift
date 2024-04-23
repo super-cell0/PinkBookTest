@@ -10,6 +10,7 @@ import YPImagePicker
 import MBProgressHUD
 import SKPhotoBrowser
 import AVKit
+import AMapLocationKit
 
 class NoteEditViewController: UIViewController {
     
@@ -36,6 +37,8 @@ class NoteEditViewController: UIViewController {
     var videoURL: URL?
     var isVideo: Bool { videoURL != nil }
     var textViewAccessoryView: TextViewAccessoryView { textView.inputAccessoryView as! TextViewAccessoryView }
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +70,15 @@ class NoteEditViewController: UIViewController {
         }
         
         textView.delegate = self
+        
+        //请求定位权限
+        locationManager.requestWhenInUseAuthorization()
+        AMapLocationManager.updatePrivacyShow(AMapPrivacyShowStatus.didShow, privacyInfo: AMapPrivacyInfoStatus.didContain)
+        AMapLocationManager.updatePrivacyAgree(AMapPrivacyAgreeStatus.didAgree)
+        
+        AMapSearchAPI.updatePrivacyShow(AMapPrivacyShowStatus.didShow, privacyInfo: AMapPrivacyInfoStatus.didContain)
+        AMapSearchAPI.updatePrivacyAgree(AMapPrivacyAgreeStatus.didAgree)
+        
         
     }
     
