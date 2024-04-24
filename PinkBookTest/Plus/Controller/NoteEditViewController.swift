@@ -26,9 +26,12 @@ class NoteEditViewController: UIViewController {
     @IBOutlet weak var channelLabel: UILabel!
     @IBOutlet weak var subChannelLabel: UILabel!
     @IBOutlet weak var speakerImaegView: UIImageView!
+    @IBOutlet weak var poiLabel: UILabel!
+    @IBOutlet weak var poiImageView: UIImageView!
     
     var channel = ""
     var subChannel = ""
+    var poiName = ""
     
     var dragingIndexPath = IndexPath(item: 0, section: 0)
     
@@ -113,9 +116,28 @@ class NoteEditViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ChannelViewController {
             vc.channelDelegate = self
+        } else if let vc = segue.destination as? POIViewController {
+            vc.delegaet = self
+            vc.poiName = self.poiName //正向传值
         }
     }
     
+}
+
+extension NoteEditViewController: POIViewControllerDelegate {
+    func updatePOIName(poiName: String) {
+        if poiName == "不显示位置" {
+            self.poiName = ""
+            poiImageView.tintColor = .label
+            poiLabel.text = "添加地点"
+            poiLabel.tintColor = .label
+        } else {
+            self.poiName = poiName
+            poiLabel.text = self.poiName
+            poiLabel.textColor = .mainColor
+            poiImageView.tintColor = .mainColor
+        }
+    }
 }
 
 extension NoteEditViewController: ChannelViewControllerDelegate {

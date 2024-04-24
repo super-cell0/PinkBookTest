@@ -63,7 +63,7 @@
             </objects>
             <point key="canvasLocation" x="245" y="594"/>
         </scene>
-        <!--Note Edit View Controller-->
+        <!--编辑-->
         <scene sceneID="TEu-nU-4Fk">
             <objects>
                 <viewController id="hIC-O8-fX3" customClass="NoteEditViewController" customModule="PinkBookTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -334,9 +334,12 @@
                             <constraint firstAttribute="trailing" secondItem="ckW-lZ-TMm" secondAttribute="trailing" id="usB-br-YF3"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="编辑" id="Qgr-ui-ZFz"/>
                     <connections>
                         <outlet property="channelLabel" destination="Enk-ii-BqV" id="aev-8M-o8W"/>
                         <outlet property="collectionView" destination="Nfz-SZ-Nhk" id="JYq-LF-bz2"/>
+                        <outlet property="poiImageView" destination="Kc6-yN-K5z" id="QLC-f5-V8z"/>
+                        <outlet property="poiLabel" destination="RxC-Al-ps4" id="nG3-sS-F3M"/>
                         <outlet property="speakerImaegView" destination="wZq-yZ-E4g" id="dWV-gR-39X"/>
                         <outlet property="subChannelLabel" destination="cZ6-Ht-at2" id="aNQ-om-4t1"/>
                         <outlet property="textView" destination="DiV-UM-ZbP" id="dC2-7C-aRv"/>
@@ -347,7 +350,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O81-H5-69k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="wNF-7t-Rpg">
                     <connections>
-                        <segue destination="ySs-e9-B6L" kind="presentation" modalPresentationStyle="fullScreen" id="eva-eb-1sA"/>
+                        <segue destination="ySs-e9-B6L" kind="presentation" id="eva-eb-1sA"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="O50-bx-WJV">
@@ -356,14 +359,14 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="256.52173913043481" y="1249.5535714285713"/>
+            <point key="canvasLocation" x="1182.4427480916031" y="1249.2957746478874"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Qxx-oR-6Gw">
             <objects>
                 <viewController id="ySs-e9-B6L" customClass="POIViewController" customModule="PinkBookTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U9I-HM-nlM">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="搜索地点" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="npM-JY-7O4">
@@ -377,7 +380,7 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="M48-YL-Fd0">
-                                <rect key="frame" x="0.0" y="72" width="393" height="780"/>
+                                <rect key="frame" x="0.0" y="72" width="393" height="770"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="71E-9j-Xad">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="1"/>
@@ -436,6 +439,7 @@
                             <constraint firstItem="npM-JY-7O4" firstAttribute="leading" secondItem="U9I-HM-nlM" secondAttribute="leading" constant="16" id="ycm-AN-zDp"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Ezw-r9-0Nl"/>
                     <connections>
                         <outlet property="searchBar" destination="npM-JY-7O4" id="15s-0l-rUG"/>
                         <outlet property="tableView" destination="M48-YL-Fd0" id="GWc-dM-ZPB"/>
@@ -492,7 +496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b27-sA-36u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1082.608695652174" y="1249.5535714285713"/>
+            <point key="canvasLocation" x="2008.3969465648854" y="1249.2957746478874"/>
         </scene>
         <!--Channel Table View Controller-->
         <scene sceneID="vIp-EY-qeX">
@@ -525,7 +529,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MvO-yS-Rcx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1843" y="1250"/>
+            <point key="canvasLocation" x="2768.7022900763359" y="1250"/>
         </scene>
         <!--cart-->
         <scene sceneID="qYP-e9-WvS">

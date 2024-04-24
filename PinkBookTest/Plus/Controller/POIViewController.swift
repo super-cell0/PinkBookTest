@@ -13,38 +13,49 @@
 
 import UIKit
 
+
+protocol POIViewControllerDelegate {
+    func updatePOIName(poiName: String)
+}
+
 class POIViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    /// poi信息
+    var delegaet: POIViewControllerDelegate?
+    var poiName = ""
+    
+    lazy var footer = MJRefreshAutoNormalFooter()
     lazy var locationManager = AMapLocationManager()
     lazy var mapSearch = AMapSearchAPI()
-    
-    let kPOITypes = "汽车服务|汽车销售|汽车维修|摩托车服务|餐饮服务|购物服务|生活服务|体育休闲服务|医疗保健服务|住宿服务|风景名胜|商务住宅|政府机构及社会团体|科教文化服务|交通设施服务|金融保险服务|公司企业|道路附属设施|地名地址信息|公共设施"
-    
     // 周边搜索POI请求
     lazy var aroundSearchRequest: AMapPOIAroundSearchRequest = {
         let request = AMapPOIAroundSearchRequest()
-        //request.types = kPOITypes
+        request.types = kPOITypes
         request.location = AMapGeoPoint.location(withLatitude: CGFloat(self.latitude), longitude: CGFloat(self.longitude))
-        //request.showFieldsType = .all
+        request.offset = kPOIOffset
         return request
     }()
-    
+    // 关键字搜索POI请求
     lazy var keywordsSearchRequest: AMapPOIKeywordsSearchRequest = {
         let request = AMapPOIKeywordsSearchRequest()
         request.keywords = self.keywords
-        
+        request.offset = kPOIOffset
         return request
     }()
-    
-    
     var pois = [["不显示位置", ""]]
     var aroundSearchPOIS = [["不显示位置", ""]]
     var latitude = 0.0 // 纬度
     var longitude = 0.0 // 经度
     var keywords = ""
+    var pageCount = 1
+    var currentAroundPage = 1
+    var currentKeywordPage = 1
+    
+    let kPOIOffset = 20
+    let kPOITypes = "汽车服务|汽车销售|汽车维修|摩托车服务|餐饮服务|购物服务|生活服务|体育休闲服务|医疗保健服务|住宿服务|风景名胜|商务住宅|政府机构及社会团体|科教文化服务|交通设施服务|金融保险服务|公司企业|道路附属设施|地名地址信息|公共设施"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,14 +68,21 @@ class POIViewController: UIViewController {
         self.mapSearch?.delegate = self
         
         self.searchBar.delegate = self
-        self.searchBar.becomeFirstResponder()
+        //self.searchBar.becomeFirstResponder()
         self.tableView.keyboardDismissMode = .onDrag
+        
+        self.tableView.mj_footer = self.footer
+        
+        if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
+            cancelButton.isEnabled = true
+        }
         
     }
     
     
 }
 
+//MARK: - UISearchBarDelegate
 extension POIViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         dismiss(animated: true)
@@ -75,6 +93,10 @@ extension POIViewController: UISearchBarDelegate {
         self.keywords = searchText
         self.pois.removeAll()
         self.keywordsSearchRequest.keywords = self.keywords
+        /// 关键字搜索上拉加载
+        footer.setRefreshingTarget(self, refreshingAction: #selector(keywordsSearchPullToRefresh))
+        
+        showLoadHUD()
         self.mapSearch?.aMapPOIKeywordsSearch(self.keywordsSearchRequest)
     }
     
@@ -107,6 +129,12 @@ extension POIViewController: AMapSearchDelegate {
             if request is AMapPOIAroundSearchRequest {
                 self.aroundSearchPOIS.append(poi)
             }
+        }
+        
+        if response.count > kPOIOffset {
+            self.pageCount = response.count / kPOIOffset + 1
+        } else {
+            footer.endRefreshingWithNoMoreData()
         }
         
         tableView.reloadData()
@@ -160,6 +188,8 @@ extension POIViewController {
                 //print("longitude: \(location.coordinate.longitude)")
                 self.latitude = location.coordinate.latitude
                 self.longitude = location.coordinate.longitude
+                
+                self.footer.setRefreshingTarget(self, refreshingAction: #selector(self.aroundSearchPullToRefresh))
                 // 检索周边POI
                 self.mapSearch?.aMapPOIAroundSearch(self.aroundSearchRequest)
             }
@@ -189,6 +219,36 @@ extension POIViewController {
     
 }
 
+//MARK: - objc
+extension POIViewController {
+    @objc func aroundSearchPullToRefresh() {
+        currentAroundPage += 1
+        aroundSearchRequest.page = self.currentAroundPage
+        mapSearch?.aMapPOIAroundSearch(self.aroundSearchRequest)
+        
+        if currentAroundPage < pageCount {
+            footer.endRefreshing()
+        } else {
+            footer.endRefreshingWithNoMoreData()
+        }
+    }
+    
+    @objc func keywordsSearchPullToRefresh() {
+        currentKeywordPage += 1
+        keywordsSearchRequest.keywords = self.keywords
+        keywordsSearchRequest.page = currentKeywordPage
+        
+        if currentKeywordPage < pageCount {
+            footer.endRefreshing()
+        } else {
+            footer.endRefreshingWithNoMoreData()
+        }
+    }
+    
+    
+}
+
+//MARK: - UITableViewDataSource
 extension POIViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pois.count
@@ -200,14 +260,26 @@ extension POIViewController: UITableViewDataSource {
         let poi = pois[indexPath.row]
         cell.poi = poi
         
+        if poi[0] == poiName {
+            cell.accessoryType = .checkmark
+        }
+        
         return cell
     }
 
 }
 
+//MARK: - UITableViewDelegate
 extension POIViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .checkmark
+        
+        delegaet?.updatePOIName(poiName: pois[indexPath.row][0])
+        
+        dismiss(animated: true)
     }
     
 }
