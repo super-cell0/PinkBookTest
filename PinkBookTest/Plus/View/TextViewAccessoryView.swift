@@ -28,7 +28,7 @@ class TextViewAccessoryView: UIView {
     
     var currentTextCount = 0 {
         didSet {
-            if currentTextCount < kMaxTextViewText {
+            if currentTextCount < kMaxTextViewTextCount {
                 doneButton.isHidden = false
                 stackViewState.isHidden = true
             } else {

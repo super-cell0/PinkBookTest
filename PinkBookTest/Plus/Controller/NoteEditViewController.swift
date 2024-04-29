@@ -43,6 +43,7 @@ class NoteEditViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,16 +62,7 @@ class NoteEditViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         
-        //let lineFragmentPadding = textView.textContainer.lineFragmentPadding
-        //textView.textContainerInset = UIEdgeInsets(top: 0, left: -lineFragmentPadding, bottom: 0, right: -lineFragmentPadding)
-        
-        textView.placeholder = "填写内容"
-        
-        if let textViewAccessoryViewNib = Bundle.main.loadNibNamed("TextViewAccessoryView", owner: nil)?.first as? TextViewAccessoryView {
-            textView.inputAccessoryView = textViewAccessoryViewNib
-            textViewAccessoryView.doneButton.addTarget(self, action: #selector(resignTextView), for: .touchUpInside)
-            textViewAccessoryView.maxTextCountLabel.text = "/\(kMaxTextViewText)"
-        }
+        textViewConfig()
         
         textView.delegate = self
         
@@ -82,6 +74,13 @@ class NoteEditViewController: UIViewController {
         AMapSearchAPI.updatePrivacyShow(AMapPrivacyShowStatus.didShow, privacyInfo: AMapPrivacyInfoStatus.didContain)
         AMapSearchAPI.updatePrivacyAgree(AMapPrivacyAgreeStatus.didAgree)
         
+        print(NSHomeDirectory())
+//        //删掉启动页面的一些资源
+//        do {
+//            try FileManager.default.removeItem(atPath: "\(NSHomeDirectory())/Library/SplashBoard")
+//        } catch {
+//            fatalError()
+//        }
         
     }
     
@@ -103,7 +102,7 @@ class NoteEditViewController: UIViewController {
         guard titleTextField.markedTextRange == nil else { return }
         if titleTextField.unwrappedText.count > 20 {
             titleTextField.text = String(titleTextField.unwrappedText.prefix(20))
-            self.showTextHUD(title: "标题最多输入20个字")
+            self.showTextHUD(title: "标题最多输入\(20)个字")
             DispatchQueue.main.async {
                 let end = self.titleTextField.endOfDocument
                 self.titleTextField.selectedTextRange = self.titleTextField.textRange(from: end, to: end)
@@ -113,13 +112,63 @@ class NoteEditViewController: UIViewController {
         titleCountLabel.text = "\(20 - titleTextField.unwrappedText.count)"
     }
     
+    //MARK: - 保存草稿
+    @IBAction func saveDraftNote(_ sender: Any) {
+        guard textViewAccessoryView.currentTextCount <= kMaxTextViewTextCount else {
+            showTextHUD(title: "正文最多输入\(kMaxTextViewTextCount)个字")
+            return
+        }
+        
+        let draftNote = DraftNote(context: context)
+        
+        draftNote.draftTitle = titleTextField.exactText
+        draftNote.draftText = textView.exactText
+        draftNote.draftChannel = self.channel
+        draftNote.draftSubChannel = self.subChannel
+        draftNote.draftPOIName = self.poiName
+        draftNote.draftUpdateAt = Date()
+        draftNote.coverPhoto = self.photos[0].jpeg(jpegQuality: .high)
+        draftNote.isVideo = self.isVideo
+        
+        var dataPhotos: [Data] = []
+        for photo in self.photos {
+            if let pngData = photo.pngData() {
+                dataPhotos.append(pngData)
+            }
+        }
+        draftNote.photos = try? JSONEncoder().encode(dataPhotos)
+        
+        appDelegate.saveContext()
+        
+    }
+    
+    @IBAction func postNote(_ sender: Any) {
+    }
+    
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ChannelViewController {
+            view.endEditing(true)
             vc.channelDelegate = self
         } else if let vc = segue.destination as? POIViewController {
             vc.delegaet = self
             vc.poiName = self.poiName //正向传值
         }
+    }
+    
+    func textViewConfig() {
+        textView.placeholder = "填写内容"
+        //let lineFragmentPadding = textView.textContainer.lineFragmentPadding
+        //textView.textContainerInset = UIEdgeInsets(top: 0, left: -lineFragmentPadding, bottom: 0, right: -lineFragmentPadding)
+        
+        if let textViewAccessoryViewNib = Bundle.main.loadNibNamed("TextViewAccessoryView", owner: nil)?.first as? TextViewAccessoryView {
+            textView.inputAccessoryView = textViewAccessoryViewNib
+            textViewAccessoryView.doneButton.addTarget(self, action: #selector(resignTextView), for: .touchUpInside)
+            textViewAccessoryView.maxTextCountLabel.text = "/\(kMaxTextViewTextCount)"
+        }
+
     }
     
 }
@@ -266,9 +315,7 @@ extension NoteEditViewController: UICollectionViewDropDelegate {
     
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
         
-        //        if dragingIndexPath.section == destinationIndexPath?.section {
-        //
-        //        }
+        //if dragingIndexPath.section == destinationIndexPath?.section {}
         if collectionView.hasActiveDrag {
             return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
         }

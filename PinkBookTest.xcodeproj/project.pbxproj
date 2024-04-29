@@ -17,7 +17,7 @@
 		043541982BC383B600D1ED2D /* NoteEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043541972BC383B600D1ED2D /* NoteEditViewController.swift */; };
 		0435419A2BC384A700D1ED2D /* PhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043541992BC384A700D1ED2D /* PhotoItem.swift */; };
 		0435419E2BC394C500D1ED2D /* PhotoFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435419D2BC394C500D1ED2D /* PhotoFooter.swift */; };
-		043541A12BC4E2AA00D1ED2D /* AllExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043541A02BC4E2AA00D1ED2D /* AllExtensions.swift */; };
+		043541A12BC4E2AA00D1ED2D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043541A02BC4E2AA00D1ED2D /* Extensions.swift */; };
 		044904BF2B4E68AA00BCD774 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044904BE2B4E68AA00BCD774 /* TabBarViewController.swift */; };
 		04503CEB2A64E33300398E3D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503CEA2A64E33300398E3D /* HomeViewController.swift */; };
 		04503CEE2A64E60500398E3D /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503CED2A64E60500398E3D /* ColorExtension.swift */; };
@@ -35,6 +35,7 @@
 		04A05F5F2BCFB5AE005AB31C /* TextViewAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A05F5E2BCFB5AE005AB31C /* TextViewAccessoryView.swift */; };
 		04A05F632BD0EC2C005AB31C /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A05F622BD0EC2C005AB31C /* ChannelViewController.swift */; };
 		04A05F652BD0ECD0005AB31C /* ChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A05F642BD0ECD0005AB31C /* ChannelTableViewController.swift */; };
+		04D97F2F2BDE14FD00DFE5F7 /* DraftNoteWaterfallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D97F2E2BDE14FD00DFE5F7 /* DraftNoteWaterfallCell.swift */; };
 		FCCB7214E6B08AE1FA60044F /* Pods_PinkBookTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E742BF63EE31055AA1D12 /* Pods_PinkBookTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +56,7 @@
 		043541992BC384A700D1ED2D /* PhotoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItem.swift; sourceTree = "<group>"; };
 		0435419D2BC394C500D1ED2D /* PhotoFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFooter.swift; sourceTree = "<group>"; };
 		0435419F2BC4E08A00D1ED2D /* PinkBookTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PinkBookTest-Bridging-Header.h"; sourceTree = "<group>"; };
-		043541A02BC4E2AA00D1ED2D /* AllExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExtensions.swift; sourceTree = "<group>"; };
+		043541A02BC4E2AA00D1ED2D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		044904BE2B4E68AA00BCD774 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		04503CEA2A64E33300398E3D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		04503CED2A64E60500398E3D /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -73,6 +74,8 @@
 		04A05F5E2BCFB5AE005AB31C /* TextViewAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewAccessoryView.swift; sourceTree = "<group>"; };
 		04A05F622BD0EC2C005AB31C /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		04A05F642BD0ECD0005AB31C /* ChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewController.swift; sourceTree = "<group>"; };
+		04D97F2E2BDE14FD00DFE5F7 /* DraftNoteWaterfallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftNoteWaterfallCell.swift; sourceTree = "<group>"; };
+		04F60FCE2BDA54450090F293 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0D4405C302770CF9B31FC395 /* Pods-PinkBookTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinkBookTest.release.xcconfig"; path = "Target Support Files/Pods-PinkBookTest/Pods-PinkBookTest.release.xcconfig"; sourceTree = "<group>"; };
 		B89E742BF63EE31055AA1D12 /* Pods_PinkBookTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinkBookTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -125,6 +128,7 @@
 				040A73462A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld */,
 				0435419F2BC4E08A00D1ED2D /* PinkBookTest-Bridging-Header.h */,
 				04A05F582BCD5FEE005AB31C /* testVideo.mp4 */,
+				04F60FCE2BDA54450090F293 /* README.md */,
 			);
 			path = PinkBookTest;
 			sourceTree = "<group>";
@@ -189,6 +193,7 @@
 		04503CDC2A64E26D00398E3D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04D97F2E2BDE14FD00DFE5F7 /* DraftNoteWaterfallCell.swift */,
 				04503CF92A64FA6200398E3D /* WaterfallCollectionViewCell.swift */,
 			);
 			path = View;
@@ -306,7 +311,7 @@
 				04503CF52A64ED1C00398E3D /* Constants.swift */,
 				044904BE2B4E68AA00BCD774 /* TabBarViewController.swift */,
 				04503CED2A64E60500398E3D /* ColorExtension.swift */,
-				043541A02BC4E2AA00D1ED2D /* AllExtensions.swift */,
+				043541A02BC4E2AA00D1ED2D /* Extensions.swift */,
 				04A05F5A2BCF9B3D005AB31C /* LimitedTextView.swift */,
 			);
 			path = Common;
@@ -451,7 +456,7 @@
 				04503CFA2A64FA6200398E3D /* WaterfallCollectionViewCell.swift in Sources */,
 				04A05F652BD0ECD0005AB31C /* ChannelTableViewController.swift in Sources */,
 				040A733E2A64DE4F00ACA108 /* AppDelegate.swift in Sources */,
-				043541A12BC4E2AA00D1ED2D /* AllExtensions.swift in Sources */,
+				043541A12BC4E2AA00D1ED2D /* Extensions.swift in Sources */,
 				043541982BC383B600D1ED2D /* NoteEditViewController.swift in Sources */,
 				040A73482A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld in Sources */,
 				04120EC92B4FBFD60092820B /* PostViewController.swift in Sources */,
@@ -463,6 +468,7 @@
 				04710F532BD15D2300D80988 /* POIViewController.swift in Sources */,
 				04503CF42A64EB8C00398E3D /* NearByViewController.swift in Sources */,
 				04503CEB2A64E33300398E3D /* HomeViewController.swift in Sources */,
+				04D97F2F2BDE14FD00DFE5F7 /* DraftNoteWaterfallCell.swift in Sources */,
 				04A05F632BD0EC2C005AB31C /* ChannelViewController.swift in Sources */,
 				047BDD632BD5F17A00774027 /* POICell.swift in Sources */,
 				04A05F5F2BCFB5AE005AB31C /* TextViewAccessoryView.swift in Sources */,

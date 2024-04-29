@@ -22,7 +22,7 @@ let kChannels = ["推荐", "旅行", "娱乐", "美食", "科技", "游戏", "�
 let kPhotoItemID = "PhotoItemID"
 let kPhotoFooterID = "PhotoFooterID"
 
-let kMaxTextViewText = 1000
+let kMaxTextViewTextCount = 1000
 
 let kAllSubChannels = [
     ["穿神马是神马", "就快瘦到50斤啦", "花5个小时修的靓图", "网红店入坑记"],
@@ -38,3 +38,8 @@ let kAllSubChannels = [
 let kChannelTableViewControllerID = "ChannelTableViewControllerID"
 let kSubChannelCellID = "SubChannelCellID"
 let kPOICellID = "POICellID"
+let kDraftNoteWaterfallCellID = "DraftNoteWaterfallCellID"
+
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let context = appDelegate.persistentContainer.viewContext
