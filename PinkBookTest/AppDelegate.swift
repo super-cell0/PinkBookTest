@@ -10,9 +10,6 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     // 当应用程序启动并完成初始化后被调用
     // 初始化应用程序设置和启动任何需要的单例对象的最佳位置
     //这个方法中通常会进行一些初始化操作，比如配置 UI、启动后台任务等
@@ -22,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 4
         AMapServices.shared().enableHTTPS = true
         AMapServices.shared().apiKey = "66ff1fbe3f464fbf593ee618a4826730"
+        UINavigationBar.appearance().tintColor = .label
 
         return true
     }

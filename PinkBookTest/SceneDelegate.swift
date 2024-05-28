@@ -7,6 +7,16 @@
 
 import UIKit
 
+//任务(执行的代码)
+//1.同步执行任务(sync)-不具备开启多线程的能力
+//2.异步执行任务(async)-具备开启多线程的能力
+
+//队列(排队等待处理的任务)-FIFO(先进先出)-先排队的人先受理
+//1.串行队列(Serial Dispatch Queue)-顺次执行队列中的任务
+//2.并发队列(Concurrent Dispatch Queue)-同时执行队列中的任务
+
+//3.默认代码为串行同步,网络请求为并发异步
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

@@ -22,6 +22,7 @@ class WaterfallCollectionViewController: UICollectionViewController, CHTCollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         let layout = collectionView.collectionViewLayout as! CHTCollectionViewWaterfallLayout
         layout.columnCount = 2
         layout.minimumColumnSpacing = 4
@@ -29,11 +30,28 @@ class WaterfallCollectionViewController: UICollectionViewController, CHTCollecti
         layout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 4, right: 4)
         layout.itemRenderDirection = .leftToRight
         
+        if isMyDraft {
+            navigationItem.title = "本地草稿"
+        }
+        
         getDraftNotes()
     }
 
+    //MARK: - 取出草稿数据
     func getDraftNotes() {
-        let draftNotes = try! context.fetch(DraftNote.fetchRequest() as NSFetchRequest<DraftNote>)
+        let request = DraftNote.fetchRequest() as NSFetchRequest<DraftNote>
+        //分页加载
+        //request.fetchOffset = 0
+        //request.fetchLimit = 20
+        //筛选
+        //request.predicate = NSPredicate(format: "title = %@", "ios")
+        
+        let sortDescriptor = NSSortDescriptor(key: "draftUpdateAt", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        
+        request.propertiesToFetch = ["coverPhoto", "draftTitle", "draftUpdateAt", "isVideo"]
+        
+        let draftNotes = try! context.fetch(request)
         self.draftNotes = draftNotes
     }
 
@@ -50,6 +68,8 @@ class WaterfallCollectionViewController: UICollectionViewController, CHTCollecti
         if isMyDraft {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kDraftNoteWaterfallCellID, for: indexPath) as! DraftNoteWaterfallCell
             cell.draftNotes = self.draftNotes[indexPath.item]
+            cell.deleteButton.tag = indexPath.item
+            cell.deleteButton.addTarget(self, action: #selector(deleteDraftNoteAlert), for: .touchUpInside)
             return cell
             
         } else {
@@ -61,15 +81,84 @@ class WaterfallCollectionViewController: UICollectionViewController, CHTCollecti
 
         }
     }
+    
+    @objc func deleteDraftNoteAlert(sender: UIButton) {
+        let indexPath = sender.tag
+        let alertController = UIAlertController(title: "提示", message: "确认删除该草稿吗？", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "取消", style: .cancel)
+        let action2 = UIAlertAction(title: "确认", style: .destructive) { _ in
+            // 数据
+            let draftNoteIndex = self.draftNotes[indexPath]
+            context.delete(draftNoteIndex)
+            appDelegate.saveContext()
+            self.draftNotes.remove(at: indexPath)
+            // UI
+            self.collectionView.performBatchUpdates {
+                self.collectionView.deleteItems(at: [IndexPath(item: indexPath, section: 0)])
+            }
+        }
+        
+        alertController.addAction(action1)
+        alertController.addAction(action2)
+        
+        present(alertController, animated: true)
+        
+    }
 
 
+}
+
+extension WaterfallCollectionViewController {
+    //MARK: - 跳转到笔记编辑页面
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isMyDraft {
+            let draftNote = self.draftNotes[indexPath.item]
+            if let photoData = draftNote.photos,
+               let photoDataArray = try? JSONDecoder().decode([Data].self, from: photoData) {
+                let photos = photoDataArray.map { UIImage(data: $0) ?? UIImage(named: "testPhoto")! }
+                let videoURL = FileManager.default.save(data: draftNote.video, directoryName: "video", fileName: "\(UUID().uuidString).mp4")
+                
+                let vc = storyboard?.instantiateViewController(identifier: kNoteEditViewControllerID) as! NoteEditViewController
+                
+                vc.draftNote = draftNote
+                vc.photos = photos
+                vc.videoURL = videoURL
+                vc.updateDraftNoteFinished = {
+                    self.getDraftNotes()
+                    self.collectionView.reloadData()
+                }
+                
+                navigationController?.pushViewController(vc, animated: true)
+                
+            } else {
+                showTextHUD(title: "加载草稿失败")
+            }
+        } else {
+            
+        }
+    }
+    
 }
 
 extension WaterfallCollectionViewController {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return photos[indexPath.item].size
+        let cellW = (UIScreen.main.bounds.width - 4 * 3) / 2
+        var cellH: CGFloat = 0
+        if isMyDraft {
+            let draftNote = draftNotes[indexPath.item]
+            let image = UIImage(data: draftNote.coverPhoto) ?? UIImage(named: "testPhoto")!
+            let imageHeight = image.size.height
+            let imageWidth = image.size.width
+            let imageRatio = imageHeight / imageWidth
+            let stack: CGFloat = 60.33 + 16
+            cellH = cellW * imageRatio + stack
+        } else {
+            cellH = photos[indexPath.item].size.height
+        }
+        
+        return CGSize(width: cellW, height: cellH)
     }
 
 }

@@ -60,18 +60,18 @@ class POIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
         
-        self.requestLocationConfig()
+        requestLocationConfig()
         
-        self.mapSearch?.delegate = self
+        mapSearch?.delegate = self
         
-        self.searchBar.delegate = self
-        //self.searchBar.becomeFirstResponder()
-        self.tableView.keyboardDismissMode = .onDrag
+        searchBar.delegate = self
+        //searchBar.becomeFirstResponder()
+        tableView.keyboardDismissMode = .onDrag
         
-        self.tableView.mj_footer = self.footer
+        tableView.mj_footer = self.footer
         
         if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
             cancelButton.isEnabled = true
@@ -90,20 +90,20 @@ extension POIViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text, !searchText.isBlank else { return }
-        self.keywords = searchText
-        self.pois.removeAll()
-        self.keywordsSearchRequest.keywords = self.keywords
+        keywords = searchText
+        pois.removeAll()
+        keywordsSearchRequest.keywords = keywords
         /// 关键字搜索上拉加载
         footer.setRefreshingTarget(self, refreshingAction: #selector(keywordsSearchPullToRefresh))
         
         showLoadHUD()
-        self.mapSearch?.aMapPOIKeywordsSearch(self.keywordsSearchRequest)
+        mapSearch?.aMapPOIKeywordsSearch(self.keywordsSearchRequest)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            self.pois = self.aroundSearchPOIS
-            self.tableView.reloadData()
+            pois = aroundSearchPOIS
+            tableView.reloadData()
         }
     }
     

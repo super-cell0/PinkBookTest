@@ -308,8 +308,8 @@
 		04503CEC2A64E5CA00398E3D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				04503CF52A64ED1C00398E3D /* Constants.swift */,
 				044904BE2B4E68AA00BCD774 /* TabBarViewController.swift */,
+				04503CF52A64ED1C00398E3D /* Constants.swift */,
 				04503CED2A64E60500398E3D /* ColorExtension.swift */,
 				043541A02BC4E2AA00D1ED2D /* Extensions.swift */,
 				04A05F5A2BCF9B3D005AB31C /* LimitedTextView.swift */,

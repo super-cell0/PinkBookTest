@@ -35,13 +35,17 @@ class NoteEditViewController: UIViewController {
     
     var dragingIndexPath = IndexPath(item: 0, section: 0)
     
+    var draftNote: DraftNote?
     var photos = [UIImage(named: "1")!, UIImage(named: "2")!,]
     //var videoURL: URL = Bundle.main.url(forResource: "testVideo", withExtension: "mp4")!
     var videoURL: URL?
+    
     var isVideo: Bool { videoURL != nil }
     var textViewAccessoryView: TextViewAccessoryView { textView.inputAccessoryView as! TextViewAccessoryView }
     
     let locationManager = CLLocationManager()
+    
+    var updateDraftNoteFinished: (() -> ())?
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -56,7 +60,7 @@ class NoteEditViewController: UIViewController {
         collectionView.dragInteractionEnabled = true
         
         // 1 软键盘消失
-        //collectionView.keyboardDismissMode = .onDrag
+        collectionView.keyboardDismissMode = .onDrag
         
         titleTextField.delegate = self
         
@@ -75,12 +79,14 @@ class NoteEditViewController: UIViewController {
         AMapSearchAPI.updatePrivacyAgree(AMapPrivacyAgreeStatus.didAgree)
         
         print(NSHomeDirectory())
-//        //删掉启动页面的一些资源
-//        do {
-//            try FileManager.default.removeItem(atPath: "\(NSHomeDirectory())/Library/SplashBoard")
-//        } catch {
-//            fatalError()
-//        }
+        //删掉启动页面的一些资源
+        //        do {
+        //            try FileManager.default.removeItem(atPath: "\(NSHomeDirectory())/Library/SplashBoard")
+        //        } catch {
+        //            fatalError()
+        //        }
+        
+        setDraftNoteEditUI()
         
     }
     
@@ -107,47 +113,92 @@ class NoteEditViewController: UIViewController {
                 let end = self.titleTextField.endOfDocument
                 self.titleTextField.selectedTextRange = self.titleTextField.textRange(from: end, to: end)
             }
-
+            
         }
         titleCountLabel.text = "\(20 - titleTextField.unwrappedText.count)"
     }
     
     //MARK: - 保存草稿
     @IBAction func saveDraftNote(_ sender: Any) {
-        guard textViewAccessoryView.currentTextCount <= kMaxTextViewTextCount else {
-            showTextHUD(title: "正文最多输入\(kMaxTextViewTextCount)个字")
-            return
-        }
-        
-        let draftNote = DraftNote(context: context)
-        
-        draftNote.draftTitle = titleTextField.exactText
-        draftNote.draftText = textView.exactText
-        draftNote.draftChannel = self.channel
-        draftNote.draftSubChannel = self.subChannel
-        draftNote.draftPOIName = self.poiName
-        draftNote.draftUpdateAt = Date()
-        draftNote.coverPhoto = self.photos[0].jpeg(jpegQuality: .high)
-        draftNote.isVideo = self.isVideo
-        
-        var dataPhotos: [Data] = []
-        for photo in self.photos {
-            if let pngData = photo.pngData() {
-                dataPhotos.append(pngData)
+        validateNote()
+        //更新草稿
+        if let draftNote = draftNote {
+            if !isVideo {
+                //封面图
+                draftNote.coverPhoto = self.photos[0].jpeg(jpegQuality: .high)
+                // 所有图片
+                var dataPhotos: [Data] = []
+                for photo in self.photos {
+                    if let pngData = photo.pngData() {
+                        dataPhotos.append(pngData)
+                    }
+                }
+                draftNote.photos = try? JSONEncoder().encode(dataPhotos)
             }
+            
+            draftNote.draftTitle = titleTextField.exactText
+            draftNote.draftText = textView.exactText
+            draftNote.draftChannel = self.channel
+            draftNote.draftSubChannel = self.subChannel
+            draftNote.draftPOIName = self.poiName
+            draftNote.draftUpdateAt = Date()
+            
+            appDelegate.saveContext()
+            
+            updateDraftNoteFinished?()
+            
+            navigationController?.popViewController(animated: true)
+            
+        } else {
+            //MARK: -创建草稿
+            let draftNote = DraftNote(context: context)
+            
+            if isVideo {
+                draftNote.video = try? Data(contentsOf: videoURL!)
+            }
+            //封面图
+            draftNote.coverPhoto = self.photos[0].jpeg(jpegQuality: .high)
+            // 所有图片
+            var dataPhotos: [Data] = []
+            for photo in self.photos {
+                if let pngData = photo.pngData() {
+                    dataPhotos.append(pngData)
+                }
+            }
+            draftNote.photos = try? JSONEncoder().encode(dataPhotos)
+            
+            draftNote.isVideo = isVideo
+            draftNote.draftTitle = titleTextField.exactText
+            draftNote.draftText = textView.exactText
+            draftNote.draftChannel = self.channel
+            draftNote.draftSubChannel = self.subChannel
+            draftNote.draftPOIName = self.poiName
+            draftNote.draftUpdateAt = Date()
+            
+            appDelegate.saveContext()
         }
-        draftNote.photos = try? JSONEncoder().encode(dataPhotos)
-        
-        appDelegate.saveContext()
         
     }
     
     @IBAction func postNote(_ sender: Any) {
+        validateNote()
     }
     
     
+    ///判断传入图片和字符限制
+    func validateNote() {
+        guard !photos.isEmpty else {
+            showTextHUD(title: "至少需要传入一张图片")
+            return
+        }
+        guard textViewAccessoryView.currentTextCount <= kMaxTextViewTextCount else {
+            showTextHUD(title: "正文最多输入\(kMaxTextViewTextCount)个字")
+            return
+        }
+    }
     
     
+    //MARK: - prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ChannelViewController {
             view.endEditing(true)
@@ -155,6 +206,43 @@ class NoteEditViewController: UIViewController {
         } else if let vc = segue.destination as? POIViewController {
             vc.delegaet = self
             vc.poiName = self.poiName //正向传值
+        }
+    }
+    
+}
+
+//MARK: - 编辑草稿的UI
+extension NoteEditViewController {
+    
+    func setDraftNoteEditUI() {
+        if let draftNoet = draftNote {
+            titleTextField.text = draftNoet.draftTitle
+            textView.text = draftNoet.draftText
+            channel = draftNoet.draftChannel!
+            subChannel = draftNoet.draftSubChannel!
+            poiName = draftNoet.draftPOIName!
+            
+            if !subChannel.isEmpty { updateChannelUI() }
+            if !poiName.isEmpty { updatePOINameUI() }
+        }
+    }
+    
+    func updateChannelUI() {
+        speakerImaegView.tintColor = .mainColor
+        channelLabel.text = subChannel
+        channelLabel.textColor = .mainColor
+        subChannelLabel.isHidden = true
+    }
+    
+    func updatePOINameUI() {
+        if poiName == "" {
+            poiImageView.tintColor = .label
+            poiLabel.text = "添加地点"
+            poiLabel.tintColor = .label
+        } else {
+            poiLabel.text = self.poiName
+            poiLabel.textColor = .mainColor
+            poiImageView.tintColor = .mainColor
         }
     }
     
@@ -168,24 +256,22 @@ class NoteEditViewController: UIViewController {
             textViewAccessoryView.doneButton.addTarget(self, action: #selector(resignTextView), for: .touchUpInside)
             textViewAccessoryView.maxTextCountLabel.text = "/\(kMaxTextViewTextCount)"
         }
-
+        
     }
     
 }
 
+//MARK: - POIViewControllerDelegate
 extension NoteEditViewController: POIViewControllerDelegate {
     func updatePOIName(poiName: String) {
+        // 数据
         if poiName == "不显示位置" {
             self.poiName = ""
-            poiImageView.tintColor = .label
-            poiLabel.text = "添加地点"
-            poiLabel.tintColor = .label
         } else {
             self.poiName = poiName
-            poiLabel.text = self.poiName
-            poiLabel.textColor = .mainColor
-            poiImageView.tintColor = .mainColor
         }
+        // UI
+        updatePOINameUI()
     }
 }
 
@@ -220,14 +306,14 @@ extension NoteEditViewController: UITextFieldDelegate {
         return true
     }
     
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        if range.location >= 20 || (textField.unwrappedText.count + string.count) > 20 {
-//            self.showTextHUD(title: "标题最多输入20个字")
-//            return false
-//        }
-//        
-//        return true
-//    }
+    //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    //        if range.location >= 20 || (textField.unwrappedText.count + string.count) > 20 {
+    //            self.showTextHUD(title: "标题最多输入20个字")
+    //            return false
+    //        }
+    //
+    //        return true
+    //    }
     
 }
 

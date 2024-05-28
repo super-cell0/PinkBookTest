@@ -39,6 +39,7 @@ let kChannelTableViewControllerID = "ChannelTableViewControllerID"
 let kSubChannelCellID = "SubChannelCellID"
 let kPOICellID = "POICellID"
 let kDraftNoteWaterfallCellID = "DraftNoteWaterfallCellID"
+let kNoteEditViewControllerID = "NoteEditViewControllerID"
 
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate

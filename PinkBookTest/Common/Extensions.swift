@@ -129,3 +129,35 @@ extension Date {
         }
     }
 }
+
+extension FileManager {
+    func save(data: Data?, directoryName: String, fileName: String) -> URL? {
+        guard let data = data else {
+            print("写入本地的url为nil☹️")
+            return nil
+        }
+        //file:///xx/xx/temp/yyy
+        // MARK: 创建文件夹
+        //url 转 path
+        let directoryURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(directoryName, isDirectory: true)
+        if !fileExists(atPath: directoryURL.path) {
+            guard let _ = try? createDirectory(at: directoryURL, withIntermediateDirectories: true) else {
+                print("创建文件夹失败☹️")
+                return nil
+            }
+        }
+        //file:///xx/xx/temp/yyy/fileName
+        // MARK: 写入文件
+        let fileURL = directoryURL.appendingPathComponent(fileName)
+        if !fileExists(atPath: fileURL.path) {
+            guard let _ = try? data.write(to: fileURL) else {
+                print("写入/创建文件失败")
+                return nil
+            }
+        }
+        
+        return fileURL
+        
+    }
+    
+}
