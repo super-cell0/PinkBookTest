@@ -7,6 +7,7 @@
 
 import Foundation
 import DateToolsSwift
+import AVFoundation
 
 
 extension String {
@@ -46,8 +47,12 @@ extension UIViewController {
     }
     
     // 加载框 自动隐藏
-    func showTextHUD(title: String, subtitle: String? = nil) {
-        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+    func showTextHUD(title: String, currentView: Bool = true, subtitle: String? = nil) {
+        var viewToShow = view!
+        if !currentView {
+            viewToShow = UIApplication.shared.windows.last!
+        }
+        let hud = MBProgressHUD.showAdded(to: viewToShow, animated: true)
         hud.mode = .text
         hud.label.text = title
         hud.detailsLabel.text = subtitle
@@ -160,4 +165,20 @@ extension FileManager {
         
     }
     
+}
+
+extension URL {
+    var thumbnail: UIImage {
+        let asset = AVAsset(url: self)
+        let assetImageGenerate = AVAssetImageGenerator(asset: asset)
+        assetImageGenerate.appliesPreferredTrackTransform = true
+        let time = CMTimeMakeWithSeconds(1.0, preferredTimescale: 600)
+        do {
+            let image = try assetImageGenerate.copyCGImage(at: time, actualTime: nil)
+            let thumbnail = UIImage(cgImage: image)
+            return thumbnail
+        } catch {
+            return UIImage(named: "testPhoto")!
+        }
+    }
 }

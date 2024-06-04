@@ -37,24 +37,6 @@ class WaterfallCollectionViewController: UICollectionViewController, CHTCollecti
         getDraftNotes()
     }
 
-    //MARK: - 取出草稿数据
-    func getDraftNotes() {
-        let request = DraftNote.fetchRequest() as NSFetchRequest<DraftNote>
-        //分页加载
-        //request.fetchOffset = 0
-        //request.fetchLimit = 20
-        //筛选
-        //request.predicate = NSPredicate(format: "title = %@", "ios")
-        
-        let sortDescriptor = NSSortDescriptor(key: "draftUpdateAt", ascending: true)
-        request.sortDescriptors = [sortDescriptor]
-        
-        request.propertiesToFetch = ["coverPhoto", "draftTitle", "draftUpdateAt", "isVideo"]
-        
-        let draftNotes = try! context.fetch(request)
-        self.draftNotes = draftNotes
-    }
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if isMyDraft {
             return draftNotes.count
@@ -87,14 +69,20 @@ class WaterfallCollectionViewController: UICollectionViewController, CHTCollecti
         let alertController = UIAlertController(title: "提示", message: "确认删除该草稿吗？", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "取消", style: .cancel)
         let action2 = UIAlertAction(title: "确认", style: .destructive) { _ in
-            // 数据
-            let draftNoteIndex = self.draftNotes[indexPath]
-            context.delete(draftNoteIndex)
-            appDelegate.saveContext()
-            self.draftNotes.remove(at: indexPath)
-            // UI
-            self.collectionView.performBatchUpdates {
-                self.collectionView.deleteItems(at: [IndexPath(item: indexPath, section: 0)])
+            backgroundContext.perform {
+                // 数据
+                let draftNoteIndex = self.draftNotes[indexPath]
+                backgroundContext.delete(draftNoteIndex)
+                appDelegate.saveBackgroundContext()
+                self.draftNotes.remove(at: indexPath)
+                // UI
+                DispatchQueue.main.async {
+//                    self.collectionView.performBatchUpdates {
+//                        self.collectionView.deleteItems(at: [IndexPath(item: indexPath, section: 0)])
+//                    }
+                    self.collectionView.reloadData()
+                    self.showTextHUD(title: "删除草稿成功")
+                }
             }
         }
         
@@ -115,9 +103,9 @@ extension WaterfallCollectionViewController {
             let draftNote = self.draftNotes[indexPath.item]
             if let photoData = draftNote.photos,
                let photoDataArray = try? JSONDecoder().decode([Data].self, from: photoData) {
+                
                 let photos = photoDataArray.map { UIImage(data: $0) ?? UIImage(named: "testPhoto")! }
                 let videoURL = FileManager.default.save(data: draftNote.video, directoryName: "video", fileName: "\(UUID().uuidString).mp4")
-                
                 let vc = storyboard?.instantiateViewController(identifier: kNoteEditViewControllerID) as! NoteEditViewController
                 
                 vc.draftNote = draftNote
@@ -125,7 +113,7 @@ extension WaterfallCollectionViewController {
                 vc.videoURL = videoURL
                 vc.updateDraftNoteFinished = {
                     self.getDraftNotes()
-                    self.collectionView.reloadData()
+                    //self.collectionView.reloadData()
                 }
                 
                 navigationController?.pushViewController(vc, animated: true)
@@ -135,6 +123,34 @@ extension WaterfallCollectionViewController {
             }
         } else {
             
+        }
+    }
+    
+    //MARK: - 取出草稿数据
+    func getDraftNotes() {
+        let request = DraftNote.fetchRequest() as NSFetchRequest<DraftNote>
+        //分页加载
+        //request.fetchOffset = 0
+        //request.fetchLimit = 20
+        //筛选
+        //request.predicate = NSPredicate(format: "title = %@", "ios")
+        
+        let sortDescriptor = NSSortDescriptor(key: "draftUpdateAt", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        
+        request.propertiesToFetch = ["coverPhoto", "draftTitle", "draftUpdateAt", "isVideo"]
+        
+        showLoadHUD()
+        backgroundContext.perform {
+            if let draftNotes = try? backgroundContext.fetch(request) {
+                self.draftNotes = draftNotes
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+            DispatchQueue.main.async {
+                self.hideLoadHUD()
+            }
         }
     }
     

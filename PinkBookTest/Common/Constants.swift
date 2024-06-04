@@ -44,3 +44,4 @@ let kNoteEditViewControllerID = "NoteEditViewControllerID"
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let context = appDelegate.persistentContainer.viewContext
+let backgroundContext = appDelegate.persistentContainer.newBackgroundContext() // 并发异步操作

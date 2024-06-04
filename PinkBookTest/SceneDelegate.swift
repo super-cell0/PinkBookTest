@@ -15,6 +15,11 @@ import UIKit
 //1.串行队列(Serial Dispatch Queue)-顺次执行队列中的任务
 //2.并发队列(Concurrent Dispatch Queue)-同时执行队列中的任务
 
+//串行队形同步执行
+//串行队列异步执行
+//并发队列同步执行
+//并发队列异步执行
+
 //3.默认代码为串行同步,网络请求为并发异步
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

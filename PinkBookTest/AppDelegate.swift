@@ -92,6 +92,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func saveBackgroundContext() {
+        if backgroundContext.hasChanges {
+            do {
+                try backgroundContext.save()
+            } catch {
+                fatalError("后台数据存储失败(增加删改查) \(error)")
+            }
+        }
+    }
 
 }
 

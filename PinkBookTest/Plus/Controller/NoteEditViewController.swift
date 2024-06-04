@@ -120,81 +120,88 @@ class NoteEditViewController: UIViewController {
     
     //MARK: - 保存草稿
     @IBAction func saveDraftNote(_ sender: Any) {
-        validateNote()
+        guard isValidateNote() else { return }
         //更新草稿
         if let draftNote = draftNote {
-            if !isVideo {
-                //封面图
-                draftNote.coverPhoto = self.photos[0].jpeg(jpegQuality: .high)
-                // 所有图片
-                var dataPhotos: [Data] = []
-                for photo in self.photos {
-                    if let pngData = photo.pngData() {
-                        dataPhotos.append(pngData)
-                    }
+            backgroundContext.perform {
+                if !self.isVideo {
+                    self.handlePhoto(draftNote: draftNote)
                 }
-                draftNote.photos = try? JSONEncoder().encode(dataPhotos)
+                self.handleOthers(draftNote: draftNote)
+                
+                DispatchQueue.main.async {
+                    self.updateDraftNoteFinished?()
+                    self.showLoadHUD(title: "更新草稿成功")
+                }
             }
-            
-            draftNote.draftTitle = titleTextField.exactText
-            draftNote.draftText = textView.exactText
-            draftNote.draftChannel = self.channel
-            draftNote.draftSubChannel = self.subChannel
-            draftNote.draftPOIName = self.poiName
-            draftNote.draftUpdateAt = Date()
-            
-            appDelegate.saveContext()
-            
-            updateDraftNoteFinished?()
-            
             navigationController?.popViewController(animated: true)
             
         } else {
-            //MARK: -创建草稿
-            let draftNote = DraftNote(context: context)
-            
-            if isVideo {
-                draftNote.video = try? Data(contentsOf: videoURL!)
-            }
-            //封面图
-            draftNote.coverPhoto = self.photos[0].jpeg(jpegQuality: .high)
-            // 所有图片
-            var dataPhotos: [Data] = []
-            for photo in self.photos {
-                if let pngData = photo.pngData() {
-                    dataPhotos.append(pngData)
+            //开启一个后台线程
+            backgroundContext.perform {
+                let draftNote = DraftNote(context: backgroundContext)
+                // 视频
+                if self.isVideo {
+                    draftNote.video = try? Data(contentsOf: self.videoURL!)
+                }
+                // 图片
+                self.handlePhoto(draftNote: draftNote)
+                
+                draftNote.isVideo = self.isVideo
+                self.handleOthers(draftNote: draftNote)
+                
+                DispatchQueue.main.async {
+                    self.showTextHUD(title: "保存草稿成功", currentView: false)
                 }
             }
-            draftNote.photos = try? JSONEncoder().encode(dataPhotos)
-            
-            draftNote.isVideo = isVideo
-            draftNote.draftTitle = titleTextField.exactText
-            draftNote.draftText = textView.exactText
-            draftNote.draftChannel = self.channel
-            draftNote.draftSubChannel = self.subChannel
-            draftNote.draftPOIName = self.poiName
-            draftNote.draftUpdateAt = Date()
-            
-            appDelegate.saveContext()
+            dismiss(animated: true)
         }
         
     }
     
+    //MARK: -创建草稿
+    func handlePhoto(draftNote: DraftNote) {
+        //封面图
+        draftNote.coverPhoto = self.photos[0].jpeg(jpegQuality: .high)
+        // 所有图片
+        var dataPhotos: [Data] = []
+        for photo in self.photos {
+            if let pngData = photo.pngData() {
+                dataPhotos.append(pngData)
+            }
+        }
+        draftNote.photos = try? JSONEncoder().encode(dataPhotos)
+    }
+    
+    func handleOthers(draftNote: DraftNote) {
+        DispatchQueue.main.async {
+            draftNote.draftTitle = self.titleTextField.exactText
+            draftNote.draftText = self.textView.exactText
+        }
+        draftNote.draftChannel = self.channel
+        draftNote.draftSubChannel = self.subChannel
+        draftNote.draftPOIName = self.poiName
+        draftNote.draftUpdateAt = Date()
+        
+        appDelegate.saveBackgroundContext()
+    }
+    
     @IBAction func postNote(_ sender: Any) {
-        validateNote()
+        guard isValidateNote() else { return }
     }
     
     
     ///判断传入图片和字符限制
-    func validateNote() {
+    func isValidateNote() -> Bool {
         guard !photos.isEmpty else {
             showTextHUD(title: "至少需要传入一张图片")
-            return
+            return false
         }
         guard textViewAccessoryView.currentTextCount <= kMaxTextViewTextCount else {
             showTextHUD(title: "正文最多输入\(kMaxTextViewTextCount)个字")
-            return
+            return false
         }
+        return true
     }
     
     
@@ -261,7 +268,7 @@ extension NoteEditViewController {
     
 }
 
-//MARK: - POIViewControllerDelegate
+//MARK: POIViewControllerDelegate
 extension NoteEditViewController: POIViewControllerDelegate {
     func updatePOIName(poiName: String) {
         // 数据
@@ -275,6 +282,7 @@ extension NoteEditViewController: POIViewControllerDelegate {
     }
 }
 
+//MARK: ChannelViewControllerDelegate
 extension NoteEditViewController: ChannelViewControllerDelegate {
     func updateChannel(channel: String, subChannel: String) {
         self.channel = channel
@@ -289,17 +297,16 @@ extension NoteEditViewController: ChannelViewControllerDelegate {
     
 }
 
+//MARK: UITextViewDelegate
 extension NoteEditViewController: UITextViewDelegate {
-    
     func textViewDidChange(_ textView: UITextView) {
         guard textView.markedTextRange == nil else { return }
         textViewAccessoryView.currentTextCount = textView.text.count
     }
-    
 }
 
+//MARK: UITextFieldDelegate
 extension NoteEditViewController: UITextFieldDelegate {
-    
     // 2 软键盘消失
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -314,9 +321,9 @@ extension NoteEditViewController: UITextFieldDelegate {
     //
     //        return true
     //    }
-    
 }
 
+//MARK: UICollectionViewDataSource
 extension NoteEditViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -350,6 +357,7 @@ extension NoteEditViewController: UICollectionViewDataSource {
     
 }
 
+//MARK: UICollectionViewDelegate
 extension NoteEditViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -383,6 +391,7 @@ extension NoteEditViewController: UICollectionViewDelegate {
     
 }
 
+//MARK: UICollectionViewDragDelegate
 extension NoteEditViewController: UICollectionViewDragDelegate {
     
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
@@ -397,6 +406,7 @@ extension NoteEditViewController: UICollectionViewDragDelegate {
     
 }
 
+//MARK: UICollectionViewDropDelegate
 extension NoteEditViewController: UICollectionViewDropDelegate {
     
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
@@ -427,7 +437,7 @@ extension NoteEditViewController: UICollectionViewDropDelegate {
     
 }
 
-
+//MARK: SKPhotoBrowserDelegate
 extension NoteEditViewController: SKPhotoBrowserDelegate {
     
     func removePhoto(_ browser: SKPhotoBrowser, index: Int, reload: @escaping (() -> Void)) {
@@ -437,6 +447,7 @@ extension NoteEditViewController: SKPhotoBrowserDelegate {
     }
 }
 
+//MARK: UICollectionViewDelegateFlowLayout
 extension NoteEditViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -445,6 +456,7 @@ extension NoteEditViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
+//MARK: objc监听函数
 extension NoteEditViewController {
     
     @objc func resignTextView() {
