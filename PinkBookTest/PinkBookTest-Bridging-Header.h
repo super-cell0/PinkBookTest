@@ -19,3 +19,7 @@
 #import <AMapSearchKit/AMapSearchKit.h>
 
 #import "MJRefresh.h"
+
+// 引入 JVERIFICATIONService.h 头文件
+#import "JVERIFICATIONService.h"
+

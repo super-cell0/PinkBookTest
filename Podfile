@@ -20,6 +20,8 @@ target 'PinkBookTest' do
   pod 'AMapSearch'
   pod 'MJRefresh'
   pod 'DateToolsSwift'
+  #极光认证登陆
+  pod 'JVerification'
   
 end
 

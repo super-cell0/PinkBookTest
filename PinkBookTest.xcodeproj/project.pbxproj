@@ -35,6 +35,8 @@
 		04A05F5F2BCFB5AE005AB31C /* TextViewAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A05F5E2BCFB5AE005AB31C /* TextViewAccessoryView.swift */; };
 		04A05F632BD0EC2C005AB31C /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A05F622BD0EC2C005AB31C /* ChannelViewController.swift */; };
 		04A05F652BD0ECD0005AB31C /* ChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A05F642BD0ECD0005AB31C /* ChannelTableViewController.swift */; };
+		04A1754C2C22B3A4002698C9 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A1754B2C22B3A4002698C9 /* MeViewController.swift */; };
+		04A1754E2C22B417002698C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A1754D2C22B417002698C9 /* LoginViewController.swift */; };
 		04D97F2F2BDE14FD00DFE5F7 /* DraftNoteWaterfallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D97F2E2BDE14FD00DFE5F7 /* DraftNoteWaterfallCell.swift */; };
 		FCCB7214E6B08AE1FA60044F /* Pods_PinkBookTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89E742BF63EE31055AA1D12 /* Pods_PinkBookTest.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,8 @@
 		04A05F5E2BCFB5AE005AB31C /* TextViewAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewAccessoryView.swift; sourceTree = "<group>"; };
 		04A05F622BD0EC2C005AB31C /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		04A05F642BD0ECD0005AB31C /* ChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewController.swift; sourceTree = "<group>"; };
+		04A1754B2C22B3A4002698C9 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		04A1754D2C22B417002698C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04D97F2E2BDE14FD00DFE5F7 /* DraftNoteWaterfallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftNoteWaterfallCell.swift; sourceTree = "<group>"; };
 		04F60FCE2BDA54450090F293 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0D4405C302770CF9B31FC395 /* Pods-PinkBookTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinkBookTest.release.xcconfig"; path = "Target Support Files/Pods-PinkBookTest/Pods-PinkBookTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 		04503CE92A64E2CB00398E3D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04A1754B2C22B3A4002698C9 /* MeViewController.swift */,
+				04A1754D2C22B417002698C9 /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 				04A05F652BD0ECD0005AB31C /* ChannelTableViewController.swift in Sources */,
 				040A733E2A64DE4F00ACA108 /* AppDelegate.swift in Sources */,
 				043541A12BC4E2AA00D1ED2D /* Extensions.swift in Sources */,
+				04A1754C2C22B3A4002698C9 /* MeViewController.swift in Sources */,
 				043541982BC383B600D1ED2D /* NoteEditViewController.swift in Sources */,
 				040A73482A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld in Sources */,
 				04120EC92B4FBFD60092820B /* PostViewController.swift in Sources */,
@@ -475,6 +482,7 @@
 				0435419A2BC384A700D1ED2D /* PhotoItem.swift in Sources */,
 				04503CF82A64F7AD00398E3D /* WaterfallCollectionViewController.swift in Sources */,
 				04503CEE2A64E60500398E3D /* ColorExtension.swift in Sources */,
+				04A1754E2C22B417002698C9 /* LoginViewController.swift in Sources */,
 				04503CF62A64ED1C00398E3D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
