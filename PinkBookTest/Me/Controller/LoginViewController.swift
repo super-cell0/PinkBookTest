@@ -56,6 +56,8 @@ extension LoginViewController {
                     print("this: \(result)")
                     if let code = result["code"] as? Int, code == 7000 {
                         //当前设备可使用一键登录
+                        print("当前设备可使用一键登录")
+
                     }else{
                         print("当前设备不可使用一键登录")
 
@@ -73,3 +75,15 @@ extension LoginViewController {
 
     
 }
+
+//                        JVERIFICATIONService.getSMSAuthorization(with: self, hide: true, animated: true, timeout: 5*1000) { (result) in
+//                            if let token = result["loginToken"] {
+//                                if let code = result["code"], let op = result["operator"] {
+//                                    print("一键登录: code = \(code), operator = \(op), loginToken = \(token)")
+//                                }
+//                            } else if let code = result["code"], let content = result["content"] {
+//                                print("一键登录else if: code = \(code), content = \(content)")
+//                            }
+//                        } actionBlock: { type, content in
+//                            print("type = \(type), content = \(content)")
+//                        }
