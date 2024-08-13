@@ -21,6 +21,7 @@ let kChannels = ["推荐", "旅行", "娱乐", "美食", "科技", "游戏", "�
 
 let kPhotoItemID = "PhotoItemID"
 let kPhotoFooterID = "PhotoFooterID"
+let kLoginNavigtionControllerID = "LoginNavigtionControllerID"
 
 let kMaxTextViewTextCount = 1000
 

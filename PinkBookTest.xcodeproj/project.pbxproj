@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04050A092C6661AB001C0323 /* LoginExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04050A082C6661AB001C0323 /* LoginExtensions.swift */; };
 		040A733E2A64DE4F00ACA108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040A733D2A64DE4F00ACA108 /* AppDelegate.swift */; };
 		040A73402A64DE4F00ACA108 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040A733F2A64DE4F00ACA108 /* SceneDelegate.swift */; };
 		040A73452A64DE4F00ACA108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040A73432A64DE4F00ACA108 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		03F5F096C945B670865C314C /* Pods-PinkBookTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinkBookTest.debug.xcconfig"; path = "Target Support Files/Pods-PinkBookTest/Pods-PinkBookTest.debug.xcconfig"; sourceTree = "<group>"; };
+		04050A082C6661AB001C0323 /* LoginExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginExtensions.swift; sourceTree = "<group>"; };
 		040A733A2A64DE4F00ACA108 /* PinkBookTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinkBookTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		040A733D2A64DE4F00ACA108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		040A733F2A64DE4F00ACA108 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04050A072C66618A001C0323 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				04A1754D2C22B417002698C9 /* LoginViewController.swift */,
+				04050A082C6661AB001C0323 /* LoginExtensions.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		040A73312A64DE4F00ACA108 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +131,7 @@
 				040A733F2A64DE4F00ACA108 /* SceneDelegate.swift */,
 				040A733D2A64DE4F00ACA108 /* AppDelegate.swift */,
 				040A73432A64DE4F00ACA108 /* Main.storyboard */,
+				04050A072C66618A001C0323 /* Login */,
 				04503CEC2A64E5CA00398E3D /* Common */,
 				04503CDA2A64E22300398E3D /* Me */,
 				04503CD92A64E21C00398E3D /* Message */,
@@ -306,7 +318,6 @@
 			isa = PBXGroup;
 			children = (
 				04A1754B2C22B3A4002698C9 /* MeViewController.swift */,
-				04A1754D2C22B417002698C9 /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -465,6 +476,7 @@
 				043541A12BC4E2AA00D1ED2D /* Extensions.swift in Sources */,
 				04A1754C2C22B3A4002698C9 /* MeViewController.swift in Sources */,
 				043541982BC383B600D1ED2D /* NoteEditViewController.swift in Sources */,
+				04050A092C6661AB001C0323 /* LoginExtensions.swift in Sources */,
 				040A73482A64DE4F00ACA108 /* PinkBookTest.xcdatamodeld in Sources */,
 				04120EC92B4FBFD60092820B /* PostViewController.swift in Sources */,
 				040A73402A64DE4F00ACA108 /* SceneDelegate.swift in Sources */,
